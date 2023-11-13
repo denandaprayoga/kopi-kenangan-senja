@@ -1,0 +1,434 @@
+:root {
+  --primary-color: rgb(235, 132, 42);
+  --bg-color: rgb(24, 24, 24);
+  --highlight-color: var(--primary-color);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: rgb(255, 255, 255);
+}
+
+.highlight {
+  color: var(--highlight-color);
+}
+
+.row {
+  display: flex;
+}
+
+.active {
+  right: 0 !important;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 7%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: rgba(46, 46, 45, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.navbar__logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+}
+
+.navbar__logo span {
+  color: var(--primary-color);
+}
+
+.navbar__nav a {
+  display: inline-block;
+  margin: 0 1.3rem;
+  color: rgb(255, 255, 255);
+}
+
+.navbar__nav a:hover {
+  color: var(--primary-color);
+}
+
+.navbar__nav a::after {
+  content: '';
+  display: block;
+  width: 0;
+  padding-top: 0.2rem;
+  border-bottom: 0.1rem solid var(--primary-color);
+  transition: 0.2s linear;
+}
+
+.navbar__nav a:hover::after {
+  width: 100%;
+}
+
+.navbar__extra a {
+  color: rgb(255, 255, 255);
+  margin: 0 0.5rem;
+}
+
+.navbar__extra a:hover {
+  color: var(--primary-color);
+}
+
+#hamburger-menu {
+  display: none;
+}
+
+/* Hero section */
+.hero {
+  display: flex;
+  align-items: center;
+  background-image: url('../img/hero-bg.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    0deg,
+    rgba(24, 24, 24, 1) 0%,
+    rgba(24, 24, 24, 0) 30%
+  );
+}
+
+.hero__content {
+  padding: 1.4rem 7%;
+  max-width: 60rem;
+  z-index: 999;
+}
+
+.hero__content h1 {
+  font-size: 5em;
+  color: rgb(255, 255, 255);
+  line-height: 1.2;
+  text-shadow: 1px 1px 3px rgba(46, 46, 45, 0.5);
+}
+
+.hero__content p {
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+  line-height: 1.6;
+  margin-top: 1.5rem;
+  font-weight: 400;
+}
+
+.hero__cta {
+  display: inline-block;
+  font-size: 1.2rem;
+  color: rgb(255, 255, 255);
+  background-color: var(--primary-color);
+  padding: 1rem;
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+}
+
+/* about section */
+.about,
+.menu,
+.contact {
+  padding: 7rem 7% 1.4rem;
+}
+
+.about__image {
+  flex: 1 1 35rem;
+}
+
+.about__image img {
+  width: 100%;
+}
+
+.about__content {
+  flex: 1 1 45rem;
+  padding: 0 1rem;
+}
+
+.about__content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* menu section */
+.menu h2,
+.contact h2 {
+  margin: 0.5rem;
+}
+
+.menu p,
+.contact p {
+  text-align: center;
+  width: 32rem;
+  margin: auto;
+}
+
+.card {
+  width: 12.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem 0;
+}
+
+.card-img {
+  width: 12.5rem;
+  height: 12.5rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+.card-title {
+  font-size: 1.5rem;
+}
+
+.card p {
+  width: fit-content;
+  font-size: 1.2rem;
+}
+
+.menu .row {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* contact section*/
+.contact .row {
+  margin-top: 2rem;
+}
+
+.contact__map {
+  flex: 1 1 35rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.contact__form {
+  flex: 1 1 35rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 0.1rem solid #eee;
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.2rem;
+  background-color: transparent;
+  font-size: 1.1rem;
+  color: rgb(255, 255, 255);
+}
+
+.btn {
+  padding: 1rem 2rem;
+  margin: auto;
+  color: rgb(255, 255, 255);
+  background-color: var(--primary-color);
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+/* footer section */
+.footer {
+  padding: 1.4rem 7%;
+  background-color: var(--primary-color);
+  text-align: center;
+  margin-top: 10rem;
+}
+
+.footer__socials,
+.footer__links {
+  margin: 1rem;
+}
+
+.footer__socials a,
+.footer__links a {
+  color: rgb(255, 255, 255);
+  margin-left: 1rem;
+}
+
+.footer__socials a:hover,
+.footer__links a:hover,
+.footer__credit a:hover {
+  color: var(--bg-color);
+}
+
+.footer__credit a {
+  color: rgb(255, 255, 255);
+}
+
+/* media queries */
+
+/* laptop */
+@media (max-width: 1024px) {
+  .navbar__logo {
+    font-size: 1.3rem;
+  }
+}
+
+/* tablet */
+@media (max-width: 768px) {
+  #hamburger-menu {
+    display: inline-block;
+  }
+
+  .navbar__nav {
+    position: absolute;
+    width: 18.75rem;
+    top: 100%;
+    right: -100%;
+    background-color: rgb(255, 255, 255);
+    height: 100vh;
+    transition: 0.5s;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .navbar__nav a {
+    color: var(--bg-color);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero {
+    height: 32.25rem;
+  }
+
+  .hero__content {
+    width: 30rem;
+  }
+
+  .hero__content h1 {
+    font-size: 3rem;
+  }
+
+  .hero__content p {
+    margin-top: 0.5rem;
+    font-size: 1.126rem;
+  }
+
+  .hero__cta {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    padding: 0.8rem;
+  }
+
+  .row {
+    flex-wrap: wrap;
+  }
+
+  .about__image img {
+    height: 18.75rem;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .footer {
+    margin-top: 7rem;
+  }
+}
+
+/* mobile phone */
+@media (max-width: 576px) {
+  .navbar__logo {
+    font-size: 1.125rem;
+  }
+
+  .hero__content {
+    width: 20rem;
+  }
+
+  .hero__content h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero__content p {
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+
+  .hero__cta {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
+
+  .about__image,
+  .about__content {
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+  }
+
+  .about__image img {
+    height: 12.5rem;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .menu p {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .card {
+    margin: 1rem 0 0;
+  }
+
+  .contact__form {
+    flex: 1 1 100%;
+    padding: 1.5rem 0;
+  }
+
+  .contact p {
+    width: 100%;
+  }
+}

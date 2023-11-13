@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kopi kenangan senja</title>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- feather icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- my css -->
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar">
+      <a href="#" class="navbar__logo"
+        >kenangan<span class="highlight">senja</span>.</a
+      >
+      <div class="navbar__nav">
+        <a href="#">Home</a>
+        <a href="#about">Tentang kami</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Kontak</a>
+      </div>
+      <div class="navbar__extra">
+        <a href="#" id="search"><i data-feather="search"></i></a>
+        <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+      </div>
+    </nav>
+
+    <!-- hero section -->
+    <section class="hero" id="home">
+      <main class="hero__content">
+        <h1>Mari nikmati secangkir <span class="highlight">kopi</span></h1>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum,
+          quo.
+        </p>
+        <a href="#" class="hero__cta">Beli sekarang</a>
+      </main>
+    </section>
+
+    <!-- about section -->
+    <section id="about" class="about">
+      <h2><span class="highlight">Tentang</span> kami</h2>
+      <div class="row">
+        <div class="about__image">
+          <img src="img/about.jpg" alt="tentang kami" />
+        </div>
+        <div class="about__content">
+          <h3>Kenapa memilih kopi kami?</h3>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi, vel
+            aliquid. Eaque nostrum delectus corporis obcaecati illum magnam
+            atque modi.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+            reprehenderit voluptas dolore mollitia? Consequuntur qui quaerat
+            dolores rem quidem, dolorem explicabo atque possimus quae maiores
+            quos. Dolorem fuga explicabo porro?
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- menu section -->
+    <section id="menu" class="menu">
+      <h2><span class="highlight">Menu</span> kami</h2>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio
+        perspiciatis quo quod eos pariatur optio, eligendi cumque saepe earum
+        sapiente.
+      </p>
+      <div class="row">
+        <div class="card">
+          <img src="img/1.jpg" alt="espresso" class="card-img" />
+          <h2 class="card-title">Espresso</h2>
+          <p class="card-price">IDR 15K</p>
+        </div>
+        <div class="card">
+          <img src="img/2.jpg" alt="espresso" class="card-img" />
+          <h2 class="card-title">Espresso</h2>
+          <p class="card-price">IDR 15K</p>
+        </div>
+        <div class="card">
+          <img src="img/3.jpg" alt="espresso" class="card-img" />
+          <h2 class="card-title">Espresso</h2>
+          <p class="card-price">IDR 15K</p>
+        </div>
+        <div class="card">
+          <img src="img/4.jpg" alt="espresso" class="card-img" />
+          <h2 class="card-title">Espresso</h2>
+          <p class="card-price">IDR 15K</p>
+        </div>
+        <div class="card">
+          <img src="img/5.jpg" alt="espresso" class="card-img" />
+          <h2 class="card-title">Espresso</h2>
+          <p class="card-price">IDR 15K</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- contact section -->
+    <section id="contact" class="contact">
+      <h2><span class="highlight">Kontak</span> kami</h2>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate,
+        dignissimos!
+      </p>
+      <div class="row">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126881.56976820115!2d106.7353949601266!3d-6.387671392132824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e95620a297d3%3A0x1cfd4042316fb217!2sDepok%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1699801507201!5m2!1sen!2sid"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="contact__map"
+        ></iframe>
+        <form action="" class="contact__form">
+          <div class="input-group">
+            <i data-feather="user"></i>
+            <input type="text" placeholder="username" />
+          </div>
+          <div class="input-group">
+            <i data-feather="mail"></i>
+            <input type="text" placeholder="email" />
+          </div>
+          <div class="input-group">
+            <i data-feather="phone"></i>
+            <input type="text" placeholder="no HP" />
+          </div>
+          <button class="btn" type="submit">Kirim pesan</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- footer section -->
+    <footer class="footer">
+      <div class="footer__socials">
+        <a href="#"><i data-feather="instagram"></i></a>
+        <a href="#"><i data-feather="twitter"></i></a>
+        <a href="#"><i data-feather="facebook"></i></a>
+      </div>
+      <div class="footer__links">
+        <a href="#home">Home</a>
+        <a href="#about">Tentang kami</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Kontak</a>
+      </div>
+      <p class="footer__credit">
+        Created by <a href="">Denanda prayoga</a>. | &copy; 2023
+      </p>
+    </footer>
+
+    <!-- feather icons -->
+    <script>
+      feather.replace();
+    </script>
+
+    <!-- my javascript -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
