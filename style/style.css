@@ -13,10 +13,6 @@
   outline: none;
 }
 
-html:focus-within {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--bg-color);
@@ -49,6 +45,37 @@ h2 {
 
 button {
   cursor: pointer;
+}
+
+.badge {
+  position: absolute;
+  background-color: rgb(179, 45, 45);
+  min-width: 1.2rem;
+  height: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
+  border-radius: 50%;
+  top: 0.2rem;
+  right: -0.5rem;
+  transform: scale(0);
+}
+
+/* feather icons */
+.feather {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.icon-star {
+  fill: var(--primary-color);
+  color: var(--primary-color);
 }
 
 /* navbar */
@@ -105,6 +132,10 @@ button {
   background: transparent;
   color: rgb(255, 255, 255);
   margin-right: 1rem;
+}
+
+#shopping-cart-btn {
+  position: relative;
 }
 
 #search-btn:hover,
@@ -180,6 +211,13 @@ button {
 
 .active-cart {
   right: 0;
+}
+
+.remove-btn,
+.add-btn {
+  width: 3rem;
+  height: 2rem;
+  margin: 0 1rem;
 }
 
 /* Hero section */
@@ -283,6 +321,7 @@ button {
   margin: 3rem 0 0;
   border: 1px solid rgb(255, 255, 255);
   padding: 1rem;
+  width: 18.75rem;
 }
 
 .card-icons {
@@ -292,14 +331,12 @@ button {
   margin-bottom: 1rem;
 }
 
-.card button {
+.card .shop-cart-btn,
+.card .item-detail-btn {
   width: 3.5rem;
   height: 3.5rem;
   border: 1px solid rgb(255, 255, 255);
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .card-img {
@@ -310,7 +347,7 @@ button {
 }
 
 .card-title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .card p {
