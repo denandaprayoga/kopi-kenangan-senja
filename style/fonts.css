@@ -1,0 +1,12 @@
+:root {
+  /* font-weight font-size/line height font-family */
+  --font-family: 'Inter', sans-serif;
+  --h1-text: bold 72px/102px var(--font-family);
+  --h2-text: bold 40px var(--font-family);
+  --h3-text: bold 36px var(--font-family);
+  --h4-text: bold 22px/25px var(--font-family);
+  --body-text: 18px/25px var(--font-family);
+  --body2-text: bold 18px/25px var(--font-family);
+  --body3-text: 16px/25px var(--font-family);
+  --small-text: 12px var(--font-family);
+}

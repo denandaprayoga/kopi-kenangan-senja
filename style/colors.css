@@ -1,0 +1,7 @@
+:root {
+  --primary-color: #d76c52;
+  --secondary-color: #0a0a0a;
+  --tertiary-color: #fff;
+  --netral-color: #a5a5a5;
+  --highlight-color: var(--primary-color);
+}
