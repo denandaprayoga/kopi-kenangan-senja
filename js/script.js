@@ -61,9 +61,7 @@ function createCardElement(item) {
   cartButton.classList.add('shop-cart-btn');
   cartButton.setAttribute('data-id', item.id);
   cartButton.innerHTML = `
-    <svg class="feather" data-id=${item.id}>
-      <use href="img/feather-sprite.svg#shopping-cart" />
-    </svg>
+  <span class="mgc_shopping_bag_3_line icon-black" data-id=${item.id}><span>
   `;
 
   const detailButton = document.createElement('button');
@@ -71,9 +69,7 @@ function createCardElement(item) {
   detailButton.classList.add('item-detail-btn');
   detailButton.setAttribute('data-id', item.id);
   detailButton.innerHTML = `
-    <svg class="feather" data-id=${item.id}>
-      <use href="img/feather-sprite.svg#eye" />
-    </svg>
+  <span class="mgc_eye_2_line icon-black" data-id=${item.id}><span>
   `;
 
   cardIcons.appendChild(cartButton);
@@ -93,9 +89,7 @@ function createCardElement(item) {
 
   for (let i = 0; i < 5; i++) {
     cardReview.innerHTML += `
-      <svg class="feather icon-star">
-        <use href="img/feather-sprite.svg#star" />
-      </svg>
+    <span class="mgc_star_line icon" data-id=${item.id}><span>
     `;
   }
 

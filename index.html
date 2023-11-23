@@ -13,8 +13,8 @@
       rel="stylesheet"
     />
 
-    <!-- feather icons -->
-    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- mingcute icons -->
+    <link rel="stylesheet" href="style/font/Mingcute.css" />
 
     <!-- my css -->
     <link rel="stylesheet" href="style/style.css" />
@@ -33,24 +33,26 @@
       </div>
       <div class="navbar__extra">
         <button type="button" id="search-btn">
-          <i data-feather="search"></i>
+          <span class="mgc_search_line icon"></span>
         </button>
         <button type="button" id="shopping-cart-btn">
-          <i data-feather="shopping-cart"></i>
+          <span class="mgc_shopping_bag_3_line icon"></span>
           <p class="badge">0</p>
         </button>
         <button type="button" id="hamburger-menu">
-          <i data-feather="menu"></i>
+          <span class="mgc_menu_line icon"></span>
         </button>
       </div>
       <div class="navbar__search">
+        <label for="search-box"
+          ><span class="mgc_search_line icon-black"></span
+        ></label>
         <input
           type="search"
           name="search"
           id="search-box"
           placeholder="Search here..."
         />
-        <label for="search-box"><i data-feather="search"></i></label>
       </div>
       <div class="shopping-cart"></div>
     </nav>

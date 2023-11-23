@@ -62,15 +62,14 @@ button {
   transform: scale(0);
 }
 
-/* feather icons */
-.feather {
-  width: 24px;
-  height: 24px;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
+.icon::before {
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+}
+
+.icon-black::before {
+  font-size: 1.5rem;
+  color: var(--bg-color);
 }
 
 .icon-star {
