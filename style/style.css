@@ -1,7 +1,9 @@
 @import url(colors.css);
 @import url(fonts.css);
 @import url(navbar.css);
-
+@import url(hero.css);
+@import url(about.css);
+@import url(category.css);
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +15,7 @@
 
 body {
   font-family: var(--font-family);
-  background-color: var(--bg-color);
+  background-color: var(--secondary-color);
   color: var(--tertiary-color);
 }
 
@@ -27,18 +29,6 @@ body {
 
 .active {
   right: 0 !important;
-}
-
-p {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.6;
-}
-
-h2 {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 2rem;
 }
 
 button {
@@ -73,87 +63,6 @@ button {
 .icon-star {
   fill: var(--primary-color);
   color: var(--primary-color);
-}
-
-/* Hero section */
-.hero {
-  display: flex;
-  align-items: center;
-  background-image: url('../img/hero-bg.webp');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  position: relative;
-}
-
-.hero::after {
-  content: '';
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    0deg,
-    rgba(24, 24, 24, 1) 0%,
-    rgba(24, 24, 24, 0) 30%
-  );
-}
-
-.hero__content {
-  padding: 1.4rem 7%;
-  max-width: 60rem;
-  z-index: 999;
-}
-
-.hero__content h1 {
-  font-size: 5em;
-  color: rgb(255, 255, 255);
-  line-height: 1.2;
-  text-shadow: 1px 1px 3px rgba(46, 46, 45, 0.5);
-}
-
-.hero__content p {
-  font-size: 1.5rem;
-  color: rgb(255, 255, 255);
-  line-height: 1.6;
-  margin-top: 1.5rem;
-  font-weight: 400;
-}
-
-.hero__cta {
-  display: inline-block;
-  font-size: 1.2rem;
-  color: rgb(255, 255, 255);
-  background-color: var(--primary-color);
-  padding: 1rem;
-  margin-top: 2rem;
-  border-radius: 0.5rem;
-}
-
-/* about section */
-.about,
-.menu,
-.contact {
-  padding: 7rem 7% 1.4rem;
-}
-
-.about__image {
-  flex: 1 1 35rem;
-}
-
-.about__image img {
-  width: 100%;
-}
-
-.about__content {
-  flex: 1 1 45rem;
-  padding: 0 1rem;
-}
-
-.about__content h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
 }
 
 /* menu section */
@@ -370,109 +279,4 @@ button {
   background-color: var(--primary-color);
   color: rgb(255, 255, 255);
   font-size: 1.1rem;
-}
-
-/* tablet */
-@media (max-width: 768px) {
-  .hero {
-    height: 32.25rem;
-  }
-
-  .hero__content {
-    width: 30rem;
-  }
-
-  .hero__content h1 {
-    font-size: 3rem;
-  }
-
-  .hero__content p {
-    margin-top: 0.5rem;
-    font-size: 1.126rem;
-  }
-
-  .hero__cta {
-    margin-top: 1.5rem;
-    font-size: 1.2rem;
-    padding: 0.8rem;
-  }
-
-  .row {
-    flex-wrap: wrap;
-  }
-
-  .about__image img {
-    height: 18.75rem;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .footer {
-    margin-top: 7rem;
-  }
-
-  .modal-content {
-    flex-wrap: wrap;
-  }
-
-  .modal-content img {
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-}
-
-/* mobile phone */
-@media (max-width: 480px) {
-  .hero__content {
-    width: 20rem;
-  }
-
-  .hero__content h1 {
-    font-size: 1.5rem;
-  }
-
-  .hero__content p {
-    font-size: 0.875rem;
-    line-height: 1.4;
-  }
-
-  .hero__cta {
-    font-size: 1rem;
-    padding: 0.6rem;
-  }
-
-  .about__image,
-  .about__content {
-    flex: 1 1 100%;
-    flex-wrap: wrap;
-  }
-
-  .about__image img {
-    height: 12.5rem;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .menu p {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-
-  .shopping-cart {
-    width: 90%;
-  }
-
-  .card {
-    margin: 1rem 0 0;
-  }
-
-  .contact__form {
-    flex: 1 1 100%;
-    padding: 1.5rem 0;
-  }
-
-  .contact p {
-    width: 100%;
-  }
 }

@@ -28,8 +28,8 @@
       <div class="navbar__nav">
         <a href="#">Home</a>
         <a href="#about">About us</a>
-        <a href="#categories">Categories</a>
-        <a href="#products">Products</a>
+        <a href="#category">Category</a>
+        <a href="#product">Product</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="navbar__extra">
@@ -63,53 +63,82 @@
 
     <!-- hero section -->
     <section class="hero" id="home">
-      <main class="hero__content">
-        <h1>Mari nikmati secangkir <span class="highlight">kopi</span></h1>
+      <div class="hero__content">
+        <h1>Where Every Sip Tells a Story.</h1>
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum,
-          quo.
+          Discover our premium coffee collection, perfect for connoisseurs and
+          beginners alike. Begin your day with the essence of excellence
         </p>
         <a href="#" class="hero__cta">Beli sekarang</a>
-      </main>
+      </div>
+      <div class="hero__img">
+        <img src="img/hero-bg.png" alt="hero image" />
+      </div>
     </section>
 
     <!-- about section -->
     <section id="about" class="about">
-      <h2><span class="highlight">Tentang</span> kami</h2>
-      <div class="row">
-        <div class="about__image">
-          <img src="img/about.jpg" alt="tentang kami" />
+      <h2 class="about__title">About us</h2>
+      <div class="about__image">
+        <img src="img/about-img.jpg" alt="tentang kami" />
+      </div>
+      <div class="about__content">
+        <p>
+          Welcome to COFFEEGEM, where passion meets precision in crafting
+          exceptional coffee experiences. We source premium beans globally,
+          roast them to perfection, and deliver a cup that transcends the
+          ordinary. Whether you're a seasoned enthusiast or a novice explorer,
+          join us on a journey of dedication, craftsmanship, and the pursuit of
+          excellence. Welcome to the world of COFFEEGEM, where every sip tells a
+          story.
+        </p>
+      </div>
+    </section>
+
+    <!-- categories section -->
+    <section id="category" class="category">
+      <h2>Top Categories</h2>
+      <div class="category__items">
+        <div class="category__item">
+          <img src="img/latte.jpg" alt="latte" />
+          <div class="category__item__content">
+            <span class="line"></span>
+            <a href="#">Latte</a>
+            <span class="line"></span>
+          </div>
         </div>
-        <div class="about__content">
-          <h3>Kenapa memilih kopi kami?</h3>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi, vel
-            aliquid. Eaque nostrum delectus corporis obcaecati illum magnam
-            atque modi.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-            reprehenderit voluptas dolore mollitia? Consequuntur qui quaerat
-            dolores rem quidem, dolorem explicabo atque possimus quae maiores
-            quos. Dolorem fuga explicabo porro?
-          </p>
+        <div class="category__item">
+          <img src="img/espresso.jpg" alt="espresso" />
+          <div class="category__item__content">
+            <span class="line"></span>
+            <a href="#">Espresso</a>
+            <span class="line"></span>
+          </div>
+        </div>
+        <div class="category__item">
+          <img src="img/black-coffee.jpg" alt="black coffee" />
+          <div class="category__item__content">
+            <span class="line"></span>
+            <a href="#">Black Coffee</a>
+            <span class="line"></span>
+          </div>
+        </div>
+        <div class="category__item">
+          <img src="img/coffee-bean.jpg" alt="coffee bean" />
+          <div class="category__item__content">
+            <span class="line"></span>
+            <a href="#">Coffee Bean</a>
+            <span class="line"></span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- menu section -->
-    <section id="menu" class="menu">
-      <h2><span class="highlight">Menu</span> kami</h2>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio
-        perspiciatis quo quod eos pariatur optio, eligendi cumque saepe earum
-        sapiente.
-      </p>
-      <div class="row"></div>
-    </section>
+    <!-- products section -->
+    <div class="row"></div>
 
     <!-- contact section -->
-    <section id="contact" class="contact">
+    <!-- <section id="contact" class="contact">
       <h2><span class="highlight">Kontak</span> kami</h2>
       <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate,
@@ -139,10 +168,10 @@
           <button class="btn" type="submit">Kirim pesan</button>
         </form>
       </div>
-    </section>
+    </section> -->
 
     <!-- footer section -->
-    <footer class="footer">
+    <!-- <footer class="footer">
       <div class="footer__socials">
         <a href="#"><i data-feather="instagram"></i></a>
         <a href="#"><i data-feather="twitter"></i></a>
@@ -157,15 +186,10 @@
       <p class="footer__credit">
         Created by <a href="">Denanda prayoga</a>. | &copy; 2023
       </p>
-    </footer>
+    </footer> -->
 
     <!-- modal box item -->
     <div class="modal" id="item-detail-modal"></div>
-
-    <!-- feather icons -->
-    <script>
-      feather.replace();
-    </script>
 
     <!-- my javascript -->
     <script src="js/script.js"></script>
