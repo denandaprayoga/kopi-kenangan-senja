@@ -9,4 +9,5 @@
   --body2-text: bold 18px/25px var(--font-family);
   --body3-text: 16px/25px var(--font-family);
   --small-text: 12px var(--font-family);
+  --smallBold-text: bold 12px var(--font-family);
 }

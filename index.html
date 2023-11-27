@@ -38,7 +38,7 @@
         </button>
         <button type="button" id="shopping-cart-btn">
           <span class="mgc_shopping_bag_3_line icon"></span>
-          <p>Shopping cart <br />(<span>0</span> items)</p>
+          <p>Shopping cart <br />(<span class="badge">0 item</span>)</p>
         </button>
         <button type="button" id="search-btn">
           <span class="mgc_user_1_line icon"></span>
@@ -137,76 +137,7 @@
     <!-- products section -->
     <section class="product">
       <h2 class="product__title">Premium Products</h2>
-      <div class="product__items">
-        <div class="card">
-          <div class="product__content">
-            <img src="img/espresso.png" alt="Espresso" />
-            <div class="product__review">
-              <span class="mgc_star_line icon-black"></span>
-              <span class="mgc_star_line icon-black"></span>
-              <span class="mgc_star_line icon-black"></span>
-              <span class="mgc_star_line icon-black"></span>
-              <span class="mgc_star_line icon-black"></span>
-            </div>
-            <h4>Espresso</h4>
-          </div>
-          <div class="product__price">
-            <button type="button">Add to cart</button>
-            <p>$3</p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="product__content">
-            <img src="img/espresso.png" alt="Espresso" />
-            <div class="product__review">
-              <span class="mgc_star_line icon-black"></span>
-              <span class="mgc_star_line icon-black"></span>
-              <span class="mgc_star_line icon-black"></span>
-              <span class="mgc_star_line icon-black"></span>
-              <span class="mgc_star_line icon-black"></span>
-            </div>
-            <h4>Espresso</h4>
-          </div>
-          <div class="product__price">
-            <button type="button">Add to cart</button>
-            <p>$3</p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="product__content">
-            <img src="img/espresso.png" alt="Espresso" />
-            <div class="product__review">
-              <span class="mgc_star_line icon-black"></span>
-              <span class="mgc_star_line icon-black"></span>
-              <span class="mgc_star_line icon-black"></span>
-              <span class="mgc_star_line icon-black"></span>
-              <span class="mgc_star_line icon-black"></span>
-            </div>
-            <h4>Espresso</h4>
-          </div>
-          <div class="product__price">
-            <button type="button">Add to cart</button>
-            <p>$3</p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="product__content">
-            <img src="img/espresso.png" alt="Espresso" />
-            <div class="product__review">
-              <span class="mgc_star_line icon-black"></span>
-              <span class="mgc_star_line icon-black"></span>
-              <span class="mgc_star_line icon-black"></span>
-              <span class="mgc_star_line icon-black"></span>
-              <span class="mgc_star_line icon-black"></span>
-            </div>
-            <h4>Espresso</h4>
-          </div>
-          <div class="product__price">
-            <button type="button">Add to cart</button>
-            <p>$3</p>
-          </div>
-        </div>
-      </div>
+      <div class="product__items"></div>
     </section>
 
     <!-- contact section -->
@@ -304,9 +235,15 @@
       </div>
     </footer>
 
-    <!-- modal box item -->
-    <div class="modal" id="item-detail-modal"></div>
-
+    <script>
+      addEventListener('wheel', () => {
+        if (window.pageYOffset >= 50) {
+          document.querySelector('.navbar').classList.add('navbar__scroll');
+        } else {
+          document.querySelector('.navbar').classList.remove('navbar__scroll');
+        }
+      });
+    </script>
     <!-- my javascript -->
     <script src="js/script.js"></script>
   </body>

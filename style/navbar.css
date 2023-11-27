@@ -153,6 +153,19 @@
   margin: 0 1rem;
 }
 
+.navbar__scroll {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);
+}
+
+.cart__empty {
+  font: var(--h3-text);
+  color: var(--primary-color);
+  margin: 50% 0;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
 /* laptop */
 @media (max-width: 1024px) {
   .navbar__logo {

@@ -18,26 +18,26 @@ searchBtn.addEventListener('click', () => {
 const products = [
   {
     id: 1,
-    name: 'Otten Coffee Flores Bajawa',
-    image: 'otten-flores.jpg',
+    name: 'Espresso',
+    image: 'espresso.png',
     price: 20000,
   },
   {
     id: 2,
-    name: 'Supresso Sumatra Mandheling',
-    image: 'sumatra.jpg',
+    name: 'Cappucino',
+    image: 'cappucino.png',
     price: 30000,
   },
   {
     id: 3,
-    name: 'Woca Robusta Gayo',
-    image: 'robusta-gayo.jpg',
+    name: 'Latte',
+    image: 'latte.png',
     price: 40000,
   },
   {
     id: 4,
-    name: 'Kupu-Kupu Bola Dunia Bali Kintamani',
-    image: 'bali-kintamani.jpg',
+    name: 'Black Coffee',
+    image: 'black-coffee.png',
     price: 50000,
   },
   {
@@ -53,55 +53,44 @@ function createCardElement(item) {
   const card = document.createElement('div');
   card.classList.add('card');
 
-  const cardIcons = document.createElement('div');
-  cardIcons.classList.add('card-icons');
-
-  const cartButton = document.createElement('button');
-  cartButton.type = 'button';
-  cartButton.classList.add('shop-cart-btn');
-  cartButton.setAttribute('data-id', item.id);
-  cartButton.innerHTML = `
-  <span class="mgc_shopping_bag_3_line icon-black" data-id=${item.id}><span>
-  `;
-
-  const detailButton = document.createElement('button');
-  detailButton.type = 'button';
-  detailButton.classList.add('item-detail-btn');
-  detailButton.setAttribute('data-id', item.id);
-  detailButton.innerHTML = `
-  <span class="mgc_eye_2_line icon-black" data-id=${item.id}><span>
-  `;
-
-  cardIcons.appendChild(cartButton);
-  cardIcons.appendChild(detailButton);
+  const productContent = document.createElement('div');
+  productContent.classList.add('product__content');
 
   const cardImg = document.createElement('img');
   cardImg.src = `img/${item.image}`;
-  cardImg.alt = 'espresso';
-  cardImg.classList.add('card-img');
+  cardImg.alt = item.name;
 
-  const cardTitle = document.createElement('h2');
-  cardTitle.classList.add('card-title');
-  cardTitle.textContent = item.name;
-
-  const cardReview = document.createElement('div');
-  cardReview.classList.add('card-review');
-
+  const productReview = document.createElement('div');
+  productReview.classList.add('product__review');
   for (let i = 0; i < 5; i++) {
-    cardReview.innerHTML += `
-    <span class="mgc_star_line icon" data-id=${item.id}><span>
+    productReview.innerHTML += `
+    <span class="mgc_star_line icon-primary" data-id=${item.id}><span>
     `;
   }
 
-  const cardPrice = document.createElement('p');
-  cardPrice.classList.add('card-price');
-  cardPrice.textContent = item.price;
+  const cardTitle = document.createElement('h4');
+  cardTitle.textContent = item.name;
 
-  card.appendChild(cardIcons);
-  card.appendChild(cardImg);
-  card.appendChild(cardTitle);
-  card.appendChild(cardReview);
-  card.appendChild(cardPrice);
+  productContent.append(cardImg);
+  productContent.append(productReview);
+  productContent.append(cardTitle);
+
+  const productPrice = document.createElement('div');
+  productPrice.classList.add('product__price');
+
+  const btnPrice = document.createElement('button');
+  btnPrice.classList.add('btn__add-item');
+  btnPrice.setAttribute('data-id', item.id);
+  btnPrice.textContent = 'Add to cart';
+
+  const price = document.createElement('p');
+  price.textContent = item.price;
+
+  productPrice.append(btnPrice);
+  productPrice.append(price);
+
+  card.appendChild(productContent);
+  card.appendChild(productPrice);
 
   return card;
 }
@@ -112,17 +101,18 @@ products.forEach((item) => {
   fragment.appendChild(card);
 });
 
-//menambahkan elemen card ke menu
-const menu = document.querySelector('.menu .row');
-menu.appendChild(fragment);
+//menambahkan elemen card ke product item
+const productItems = document.querySelector('.product__items');
+productItems.appendChild(fragment);
 
 //ketika button shopping-cart di klik
-document.querySelectorAll('.shop-cart-btn').forEach((btn) => {
+document.querySelectorAll('.btn__add-item').forEach((btn) => {
   btn.addEventListener('click', (e) => {
     const id = e.target.dataset.id;
     addToCart(parseInt(id));
   });
 });
+
 //array untuk menyimpan item cart
 const cart = [];
 
@@ -179,16 +169,19 @@ function removeItem(e) {
     cart.splice(index, 1);
   }
   updateCart();
+
+  if (cart.length === 0) {
+    cartIsEmpty();
+  }
 }
 
 //update badge
 const badge = document.querySelector('.badge');
 function updateBadge() {
   if (cart.length > 0) {
-    badge.style.transform = 'scale(1)';
-    badge.textContent = cart.length;
+    badge.textContent = `${cart.length} items`;
   } else {
-    badge.style.transform = 'scale(0)';
+    badge.textContent = `${cart.length} item`;
   }
 }
 
@@ -238,11 +231,23 @@ function createCartElement(item) {
   shopBox.append(div);
 }
 
+//jika cart masih kosong
+function cartIsEmpty() {
+  shopBox.textContent = '';
+  const p = document.createElement('p');
+  p.classList.add('cart__empty');
+  p.textContent = 'Cart is Empty';
+  shopBox.append(p);
+}
+
 //toggle class active shopping cart
 const cartBtn = document.querySelector('#shopping-cart-btn');
 const shopBox = document.querySelector('.shopping-cart');
 cartBtn.addEventListener('click', () => {
   shopBox.classList.toggle('active-cart');
+  if (cart.length === 0) {
+    cartIsEmpty();
+  }
 });
 
 //klik diluar elemen
@@ -254,73 +259,4 @@ document.addEventListener('click', function (e) {
   if (!searchBtn.contains(e.target) && !searchBox.contains(e.target)) {
     searchForm.classList.remove('active-search');
   }
-
-  // if (!cartBtn.contains(e.target) && !shopBox.contains(e.target)) {
-  //   shopBox.classList.remove('active-cart');
-  // }
-
-  if (e.target === modalBox) {
-    modalBox.style.display = 'none';
-  }
 });
-
-// modal
-const modalBox = document.querySelector('.modal');
-const detailBtn = document.querySelectorAll('.item-detail-btn');
-detailBtn.forEach((btn) => {
-  btn.addEventListener('click', (e) => {
-    modalBox.style.display = 'flex';
-    modal(parseInt(e.target.dataset.id));
-  });
-});
-
-function modal(id) {
-  const data = products.find((item) => item.id === id);
-  modalBox.innerHTML = `
-    <div class="modal-container">
-      <button type="button" class="close-btn">
-        <svg class="feather">
-          <use href="img/feather-sprite.svg#x" />
-        </svg>
-      </button>
-      <div class="modal-content">
-        <img src="img/${data.image}" alt="${data.name}" />
-        <div class="product-content">
-          <h3>${data.name}</h3>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est esse,
-            soluta fugit saepe iure, nesciunt impedit possimus nemo aut quidem
-            ea, illum quam. Atque, saepe?
-          </p>
-          <div class="card-review">
-            <svg class="feather icon-star">
-              <use href="img/feather-sprite.svg#star" />
-            </svg>
-            <svg class="feather icon-star">
-              <use href="img/feather-sprite.svg#star" />
-            </svg>
-            <svg class="feather icon-star">
-              <use href="img/feather-sprite.svg#star" />
-            </svg>
-            <svg class="feather icon-star">
-              <use href="img/feather-sprite.svg#star" />
-            </svg>
-            <svg class="feather icon-star">
-              <use href="img/feather-sprite.svg#star" />
-            </svg>
-          </div>
-          <p class="card-price">${data.price}</p>
-          <button type="button" class="btn-cart">
-            <i data-feather="shopping-cart"></i><span>Add to cart</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  `;
-
-  //close modal
-  const closeBtn = document.querySelector('.close-btn');
-  closeBtn.addEventListener('click', () => {
-    modalBox.style.display = 'none';
-  });
-}
