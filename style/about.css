@@ -11,6 +11,7 @@
 
 .about__title {
   font: var(--h2-text);
+  color: var(--tertiary-color);
   text-align: center;
   margin-bottom: 32px;
 }
@@ -34,6 +35,7 @@
 
 .about__content p {
   font: var(--body-text);
+  color: var(--tertiary-color);
 }
 
 /* laptop */

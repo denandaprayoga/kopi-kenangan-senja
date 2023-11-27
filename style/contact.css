@@ -1,0 +1,151 @@
+.contact {
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: relative;
+}
+
+.contact h2 {
+  font: var(--h2-text);
+  color: var(--tertiary-color);
+}
+
+.contact__content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.contact__detail {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+}
+
+.contact__subtitle {
+  font: var(--body3-text);
+  color: var(--netral-color);
+}
+
+.contact__desc {
+  font: var(--body-text);
+  color: var(--tertiary-color);
+}
+
+.contact__social-media {
+  display: flex;
+  gap: 16px;
+}
+
+.contact__form {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+}
+
+.contact__form p {
+  font: var(--body-text);
+  color: var(--tertiary-color);
+  width: 462px;
+}
+
+.contact__form form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact__form form input,
+.contact__form form textarea {
+  width: 582px;
+  padding: 16px 10px;
+  font: var(--body-text);
+  color: var(--secondary-color);
+  border-radius: 8px;
+}
+
+.contact__form form textarea {
+  min-width: 582px;
+  max-width: 582px;
+  min-height: 200px;
+  max-height: 200px;
+}
+
+::placeholder {
+  color: var(--netral-color);
+}
+
+.contact__form form button {
+  width: 195px;
+  padding: 16px 32px;
+  background-color: var(--primary-color);
+  color: var(--tertiary-color);
+  border-radius: 8px;
+  font: var(--body-text);
+}
+
+.contact > p {
+  font-size: 120px;
+  color: var(--tertiary-color);
+  opacity: 10%;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: absolute;
+  bottom: 150px;
+  z-index: -1;
+}
+
+.contact > p span {
+  color: var(--primary-color);
+}
+
+/* laptop */
+@media (max-width: 1024px) {
+  .contact {
+    padding: 0 60px;
+    margin-top: 100px;
+  }
+
+  .contact__detail {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .contact__content {
+    gap: 40px;
+  }
+
+  .contact__form {
+    width: 100%;
+  }
+
+  .contact__form p {
+    width: 100%;
+  }
+
+  .contact__form form input,
+  .contact__form form textarea {
+    width: 100%;
+  }
+
+  .contact__form form textarea {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .contact__form form button {
+    width: 100%;
+  }
+
+  .contact > p {
+    display: none;
+  }
+}
+
+/* tablet */
+@media (max-width: 768px) {
+  .contact {
+    padding: 0 20px;
+  }
+}

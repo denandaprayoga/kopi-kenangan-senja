@@ -7,6 +7,11 @@
   gap: 32px;
 }
 
+.category__title {
+  font: var(--h2-text);
+  color: var(--tertiary-color);
+}
+
 .category__items {
   display: flex;
   flex-wrap: wrap;

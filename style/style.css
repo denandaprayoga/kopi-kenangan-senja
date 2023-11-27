@@ -4,6 +4,9 @@
 @import url(hero.css);
 @import url(about.css);
 @import url(category.css);
+@import url(products.css);
+@import url(contact.css);
+@import url(footer.css);
 * {
   margin: 0;
   padding: 0;
@@ -16,15 +19,6 @@
 body {
   font-family: var(--font-family);
   background-color: var(--secondary-color);
-  color: var(--tertiary-color);
-}
-
-.highlight {
-  color: var(--highlight-color);
-}
-
-.row {
-  display: flex;
 }
 
 .active {
@@ -57,145 +51,7 @@ button {
 
 .icon-black::before {
   font-size: 1.5rem;
-  color: var(--secondary-color);
-}
-
-.icon-star {
-  fill: var(--primary-color);
   color: var(--primary-color);
-}
-
-/* menu section */
-.menu h2,
-.contact h2 {
-  margin: 0.5rem;
-}
-
-.menu p,
-.contact p {
-  text-align: center;
-  width: 32rem;
-  margin: auto;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 3rem 0 0;
-  border: 1px solid rgb(255, 255, 255);
-  padding: 1rem;
-  width: 18.75rem;
-}
-
-.card-icons {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.card .shop-cart-btn,
-.card .item-detail-btn {
-  width: 3.5rem;
-  height: 3.5rem;
-  border: 1px solid rgb(255, 255, 255);
-  border-radius: 50%;
-}
-
-.card-img {
-  width: 15.5rem;
-  height: 15.5rem;
-  object-fit: cover;
-  object-position: center;
-}
-
-.card-title {
-  font-size: 1.2rem;
-}
-
-.card p {
-  width: fit-content;
-  font-size: 1.2rem;
-}
-
-.menu .row {
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-}
-
-/* contact section*/
-.contact .row {
-  margin-top: 2rem;
-}
-
-.contact__map {
-  flex: 1 1 35rem;
-  width: 100%;
-  object-fit: cover;
-}
-
-.contact__form {
-  flex: 1 1 35rem;
-  padding: 1.5rem;
-  text-align: center;
-}
-
-.input-group {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  border: 0.1rem solid #eee;
-  padding: 1rem;
-  margin-bottom: 0.8rem;
-}
-
-.input-group input {
-  width: 100%;
-  padding: 0.2rem;
-  background-color: transparent;
-  font-size: 1.1rem;
-  color: rgb(255, 255, 255);
-}
-
-.btn {
-  padding: 1rem 2rem;
-  margin: auto;
-  color: rgb(255, 255, 255);
-  background-color: var(--primary-color);
-  border-radius: 0.5rem;
-  margin-top: 1rem;
-  cursor: pointer;
-}
-
-/* footer section */
-.footer {
-  padding: 1.4rem 7%;
-  background-color: var(--primary-color);
-  text-align: center;
-  margin-top: 10rem;
-}
-
-.footer__socials,
-.footer__links {
-  margin: 1rem;
-}
-
-.footer__socials a,
-.footer__links a {
-  color: rgb(255, 255, 255);
-  margin-left: 1rem;
-}
-
-.footer__socials a:hover,
-.footer__links a:hover,
-.footer__credit a:hover {
-  color: var(--bg-color);
-}
-
-.footer__credit a {
-  color: rgb(255, 255, 255);
 }
 
 /* modal box */
