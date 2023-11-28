@@ -161,9 +161,14 @@
 .cart__empty {
   font: var(--h3-text);
   color: var(--primary-color);
-  margin: 50% 0;
-  transform: translateY(-50%);
+  margin-top: 50%;
   text-align: center;
+}
+
+.total {
+  font: var(--h3-text);
+  padding-top: 16px;
+  border-top: 1px dashed var(--secondary-color);
 }
 
 /* laptop */

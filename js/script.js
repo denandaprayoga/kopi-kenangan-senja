@@ -84,7 +84,7 @@ function createCardElement(item) {
   btnPrice.textContent = 'Add to cart';
 
   const price = document.createElement('p');
-  price.textContent = item.price;
+  price.textContent = rupiah(item.price);
 
   productPrice.append(btnPrice);
   productPrice.append(price);
@@ -124,6 +124,7 @@ function addToCart(productID) {
   const existingItem = cart.find((item) => item.id == productID);
   if (existingItem) {
     existingItem.quantity++;
+    existingItem.subTotal = existingItem.price * existingItem.quantity;
   } else {
     cart.push({
       id: productID,
@@ -131,8 +132,10 @@ function addToCart(productID) {
       image: selectedProduct.image,
       price: selectedProduct.price,
       quantity: 1,
+      subTotal: selectedProduct.price,
     });
   }
+
   updateCart();
 }
 
@@ -141,6 +144,23 @@ function updateCart() {
   shopBox.innerHTML = '';
   cart.forEach((item) => {
     createCartElement(item);
+  });
+
+  //membuat total harga
+  const p = document.createElement('p');
+  p.classList.add('total');
+  let total = 0;
+  cart.forEach((item) => {
+    total += item.subTotal;
+  });
+  p.textContent = `Total = ${rupiah(total)}`;
+  shopBox.append(p);
+
+  //tambahkan event listener ke add button
+  document.querySelectorAll('.add-btn').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      addItem(e);
+    });
   });
 
   //tambahkan event listener ke remove button
@@ -165,6 +185,7 @@ function removeItem(e) {
 
   if (existingItem.quantity > 1) {
     existingItem.quantity--;
+    existingItem.subTotal = existingItem.price * existingItem.quantity;
   } else if (existingItem.quantity === 1) {
     cart.splice(index, 1);
   }
@@ -173,6 +194,19 @@ function removeItem(e) {
   if (cart.length === 0) {
     cartIsEmpty();
   }
+}
+
+//add item
+function addItem(e) {
+  const existingItem = cart.find(
+    (item) => item.id == parseInt(e.target.dataset.id)
+  );
+
+  if (existingItem.quantity > 0) {
+    existingItem.quantity++;
+    existingItem.subTotal = existingItem.price * existingItem.quantity;
+  }
+  updateCart();
 }
 
 //update badge
@@ -206,14 +240,15 @@ function createCartElement(item) {
   minBtn.setAttribute('data-id', item.id);
   const plusBtn = document.createElement('button');
   plusBtn.classList.add('add-btn');
+  plusBtn.setAttribute('data-id', item.id);
 
   const spanQTY = document.createElement('span');
 
   //menambahkan konten ke elemen
   img.src = `img/${item.image}`;
   h3.textContent = item.name;
-  p.textContent = `${item.price} x ${item.quantity}`;
-  span.textContent = ` = ${item.price * item.quantity}`;
+  p.textContent = `${rupiah(item.price)} X ${item.quantity}`;
+  span.textContent = ` = ${rupiah(item.subTotal)}`;
   minBtn.textContent = `-`;
   plusBtn.textContent = `+`;
   spanQTY.textContent = item.quantity;
@@ -239,6 +274,17 @@ function cartIsEmpty() {
   p.textContent = 'Cart is Empty';
   shopBox.append(p);
 }
+
+//format Rupiah
+function rupiah(number) {
+  return new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    minimumFractionDigits: 0,
+  }).format(number);
+}
+
+//total harga
 
 //toggle class active shopping cart
 const cartBtn = document.querySelector('#shopping-cart-btn');
