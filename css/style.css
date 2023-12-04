@@ -1,7 +1,28 @@
+@import url('general-sans.css');
+
 :root {
-  --primary-color: rgb(235, 132, 42);
-  --bg-color: rgb(24, 24, 24);
-  --highlight-color: var(--primary-color);
+  /* colors */
+  --primary-100: rgba(173, 181, 189, 1);
+  --primary-200: rgba(108, 117, 125, 1);
+  --primary-300: rgba(73, 80, 87, 1);
+  --primary-400: rgba(52, 58, 64, 1);
+  --primary-500: rgba(33, 37, 41, 1);
+  --secondary-100: rgba(231, 111, 81, 1);
+  --secondary-200: rgba(227, 88, 53, 1);
+  --secondary-300: rgba(220, 68, 30, 1);
+  --secondary-400: rgba(202, 63, 28, 1);
+  --secondary-500: rgba(179, 56, 25, 1);
+  --netral-100: rgba(255, 255, 255, 1);
+
+  /* fonts */
+  /* font-style font-weight font-size/line-heigt font-family */
+  --h1-text: normal 400 8.125rem/6.5625rem 'Bebas Neue', sans-serif;
+  --h2-text: normal 400 6.875rem/6rem 'Bebas Neue', sans-serif;
+  --h3-text: normal 400 3.875rem/100% 'Bebas Neue', sans-serif;
+  --body-text: normal 400 1.125rem/1.75rem 'General Sans Variable', sans-serif;
+  --body2-text: normal 500 1.5rem / normal 'General Sans Variable', sans-serif;
+  --body3-text: normal 500 2rem / normal 'General Sans Variable', sans-serif;
+  --body4-text: normal 600 1.125rem/1.75rem 'General Sans Variable', sans-serif;
 }
 
 * {
@@ -14,7 +35,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'GeneralSans-Regular';
   background-color: var(--bg-color);
   color: rgb(255, 255, 255);
 }
