@@ -36,7 +36,7 @@
 
 body {
   font: var(--body-text);
-  color: var(--netral-100);
+  color: var(--primary-500);
 }
 
 .highlight {
@@ -258,57 +258,43 @@ button {
 /* Hero section */
 .hero {
   display: flex;
-  align-items: center;
-  background-image: url('../img/hero-bg.webp');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  flex-direction: column;
   height: 100vh;
-  position: relative;
+  padding: 0rem 3.75rem;
+  margin-top: 10.75rem;
 }
 
-.hero::after {
-  content: '';
-  display: block;
-  position: absolute;
+.hero h1 {
+  font: var(--h1-text);
+  color: var(--primary-500);
+  margin-bottom: 2.5rem;
+}
+
+.hero img {
   width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    0deg,
-    rgba(24, 24, 24, 1) 0%,
-    rgba(24, 24, 24, 0) 30%
-  );
+  height: 29.8125rem;
+  object-fit: cover;
+  object-position: center;
 }
 
 .hero__content {
-  padding: 1.4rem 7%;
-  max-width: 60rem;
-  z-index: 999;
-}
-
-.hero__content h1 {
-  font-size: 5em;
-  color: rgb(255, 255, 255);
-  line-height: 1.2;
-  text-shadow: 1px 1px 3px rgba(46, 46, 45, 0.5);
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.25rem;
+  align-items: center;
 }
 
 .hero__content p {
-  font-size: 1.5rem;
-  color: rgb(255, 255, 255);
-  line-height: 1.6;
-  margin-top: 1.5rem;
-  font-weight: 400;
+  width: 47.9375rem;
+  color: var(--primary-500);
+  flex-shrink: 1;
 }
 
 .hero__cta {
   display: inline-block;
-  font-size: 1.2rem;
-  color: rgb(255, 255, 255);
-  background-color: var(--primary-color);
+  color: var(--netral-100);
+  background-color: var(--secondary-100);
   padding: 1rem;
-  margin-top: 2rem;
-  border-radius: 0.5rem;
 }
 
 /* about section */
@@ -555,6 +541,9 @@ button {
 
 /* laptop */
 @media (max-width: 1024px) {
+  .hero h1 {
+    font: var(--h2-text);
+  }
 }
 
 /* tablet */
@@ -586,20 +575,20 @@ button {
   }
 
   .hero {
-    height: 32.25rem;
+    margin-top: 9rem;
+  }
+
+  .hero h1 {
+    font: var(--h3-text);
   }
 
   .hero__content {
-    width: 30rem;
-  }
-
-  .hero__content h1 {
-    font-size: 3rem;
+    width: 100%;
+    flex-wrap: wrap;
   }
 
   .hero__content p {
-    margin-top: 0.5rem;
-    font-size: 1.126rem;
+    width: 100%;
   }
 
   .hero__cta {
