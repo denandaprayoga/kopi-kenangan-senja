@@ -20,43 +20,53 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- navbar -->
-    <nav class="navbar">
-      <a href="#" class="navbar__logo"
-        >kenangan<span class="highlight">senja</span>.</a
-      >
-      <div class="navbar__nav">
-        <a href="#">Home</a>
-        <a href="#about">Tentang kami</a>
-        <a href="#menu">Menu</a>
-        <a href="#contact">Kontak</a>
-      </div>
-      <div class="navbar__extra">
-        <button type="button" id="search-btn">
-          <span class="mgc_search_line icon"></span>
-        </button>
-        <button type="button" id="shopping-cart-btn">
-          <span class="mgc_shopping_bag_3_line icon"></span>
-          <p class="badge">0</p>
-        </button>
-        <button type="button" id="hamburger-menu">
-          <span class="mgc_menu_line icon"></span>
-        </button>
-      </div>
-      <div class="navbar__search">
-        <label for="search-box"
-          ><span class="mgc_search_line icon-black"></span
-        ></label>
-        <input
-          type="search"
-          name="search"
-          id="search-box"
-          placeholder="Search here..."
-        />
-      </div>
-      <div class="shopping-cart"></div>
-    </nav>
-
+    <!-- header -->
+    <header class="header">
+      <!-- navbar -->
+      <nav class="navbar">
+        <div class="navbar__nav">
+          <a href="#" class="navbar__logo">
+            <img src="img/logo/logo.svg" alt="logo" />
+          </a>
+          <div class="navbar__links">
+            <a href="#">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+        <div class="navbar__extra">
+          <button type="button" id="search-btn" class="search-btn">
+            <span class="mgc_search_line icon"></span>
+          </button>
+          <button
+            type="button"
+            id="shopping-cart-btn"
+            class="shopping-cart-btn"
+          >
+            <p>Cart&lpar;<span class="badge">0</span>&rpar;</p>
+          </button>
+          <button type="button" id="login-btn" class="login-btn">
+            <p>Login</p>
+          </button>
+          <button type="button" id="hamburger-menu" class="hamburger-menu">
+            <span class="mgc_menu_line icon"></span>
+          </button>
+        </div>
+        <div class="navbar__search">
+          <label for="search-box"
+            ><span class="mgc_search_line icon-black"></span
+          ></label>
+          <input
+            type="search"
+            name="search"
+            id="search-box"
+            placeholder="Search here..."
+          />
+        </div>
+        <div class="shopping-cart"></div>
+      </nav>
+    </header>
     <!-- hero section -->
     <section class="hero" id="home">
       <main class="hero__content">
@@ -157,11 +167,6 @@
 
     <!-- modal box item -->
     <div class="modal" id="item-detail-modal"></div>
-
-    <!-- feather icons -->
-    <script>
-      feather.replace();
-    </script>
 
     <!-- my javascript -->
     <script src="js/script.js"></script>

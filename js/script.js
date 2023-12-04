@@ -1,8 +1,8 @@
 //toggle class active hambuger menu
-const navbarNav = document.querySelector('.navbar__nav');
+const navbarLinks = document.querySelector('.navbar__links');
 const hamburgerMenu = document.querySelector('#hamburger-menu');
 hamburgerMenu.addEventListener('click', () => {
-  navbarNav.classList.toggle('active');
+  navbarLinks.classList.toggle('active');
 });
 
 //toggle class active search box
