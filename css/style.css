@@ -484,47 +484,89 @@ button {
 }
 
 /* contact section*/
-.contact .row {
-  margin-top: 2rem;
-}
-
-.contact__map {
-  flex: 1 1 35rem;
+.contact {
+  display: flex;
   width: 100%;
-  object-fit: cover;
+  padding: 0rem 3.75rem;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 10rem;
 }
 
-.contact__form {
-  flex: 1 1 35rem;
-  padding: 1.5rem;
-  text-align: center;
+.contact h2 {
+  font: var(--h2-text);
+  color: var(--primary-500);
+  text-transform: uppercase;
 }
 
-.input-group {
+.contact__info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact__info-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact__info-left div p {
+  color: var(--primary-500);
+  font: var(--body-text);
+}
+
+.contact__info-left div p:nth-child(1) {
+  color: var(--primary-100);
+}
+
+.contact__info-left div span {
+  margin-right: 1rem;
+}
+
+.contact__info-right {
+  width: 36.4rem;
+}
+
+.contact__info-right p {
+  width: 28.875rem;
+}
+
+.contact__info-right form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__info-right form input,
+.contact__info-right form textarea {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  border: 0.1rem solid #eee;
-  padding: 1rem;
-  margin-bottom: 0.8rem;
-}
-
-.input-group input {
-  width: 100%;
-  padding: 0.2rem;
-  background-color: transparent;
-  font-size: 1.1rem;
-  color: rgb(255, 255, 255);
-}
-
-.btn {
-  padding: 1rem 2rem;
-  margin: auto;
-  color: rgb(255, 255, 255);
-  background-color: var(--primary-color);
-  border-radius: 0.5rem;
+  padding: 1rem 0.625rem;
+  font: var(--body-text);
+  border: 0.5px solid var(--primary-100);
+  background: var(--netral-100);
   margin-top: 1rem;
-  cursor: pointer;
+}
+
+.contact__info-right form textarea {
+  align-self: flex-start;
+  height: 11rem;
+  min-height: 11rem;
+  max-height: 11rem;
+  width: 36.375rem;
+  min-width: 36.375rem;
+  max-width: 36.375rem;
+}
+
+.btn__submit {
+  display: flex;
+  padding: 1rem 2rem;
+  justify-content: center;
+  align-items: center;
+  background: var(--secondary-100);
+  align-self: flex-start;
+  font: var(--body4-text);
+  color: var(--netral-100);
+  margin-top: 1.5rem;
 }
 
 /* footer section */
@@ -679,6 +721,10 @@ button {
   .reviews__content {
     width: 44.1875rem;
   }
+
+  .contact {
+    padding: 0rem 1.875rem;
+  }
 }
 
 /* tablet */
@@ -779,6 +825,11 @@ button {
   .reviews__content {
     font: var(--body-text);
   }
+
+  .contact__info {
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
 }
 
 /* mobile phone */
@@ -845,5 +896,25 @@ button {
 
   .reviews__content {
     width: 100%;
+  }
+
+  .contact__info-left {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .contact__info-right {
+    width: 100%;
+  }
+
+  .contact__info-right p {
+    width: 100%;
+  }
+
+  .contact__info-right form textarea {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
   }
 }
