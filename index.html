@@ -23,51 +23,53 @@
     <!-- header -->
     <header class="header">
       <!-- navbar -->
-      <nav class="navbar">
-        <div class="navbar__nav">
-          <a href="#" class="navbar__logo">
-            <img src="img/logo/logo.svg" alt="logo" />
-          </a>
-          <div class="navbar__links">
-            <a href="#">Home</a>
-            <a href="#service">Service</a>
-            <a href="#shop">Shop</a>
-            <a href="#contact">Contact</a>
+      <nav>
+        <div class="navbar container">
+          <div class="navbar__nav">
+            <a href="#" class="navbar__logo">
+              <img src="img/logo/logo.svg" alt="logo" />
+            </a>
+            <div class="navbar__links">
+              <a href="#">Home</a>
+              <a href="#service">Service</a>
+              <a href="#shop">Shop</a>
+              <a href="#contact">Contact</a>
+            </div>
           </div>
+          <div class="navbar__extra">
+            <button type="button" id="search-btn" class="search-btn">
+              <span class="mgc_search_line icon-black"></span>
+            </button>
+            <button
+              type="button"
+              id="shopping-cart-btn"
+              class="shopping-cart-btn"
+            >
+              Cart&lpar;<span class="badge">0</span>&rpar;
+            </button>
+            <button type="button" id="login-btn" class="login-btn">
+              Login
+            </button>
+            <button type="button" id="hamburger-menu" class="hamburger-menu">
+              <span class="mgc_menu_line icon-black"></span>
+            </button>
+          </div>
+          <div class="navbar__search">
+            <label for="search-box"
+              ><span class="mgc_search_line icon-black"></span
+            ></label>
+            <input
+              type="search"
+              name="search"
+              id="search-box"
+              placeholder="Search here..."
+            />
+          </div>
+          <div class="shopping-cart"></div>
         </div>
-        <div class="navbar__extra">
-          <button type="button" id="search-btn" class="search-btn">
-            <span class="mgc_search_line icon-black"></span>
-          </button>
-          <button
-            type="button"
-            id="shopping-cart-btn"
-            class="shopping-cart-btn"
-          >
-            <p>Cart&lpar;<span class="badge">0</span>&rpar;</p>
-          </button>
-          <button type="button" id="login-btn" class="login-btn">
-            <p>Login</p>
-          </button>
-          <button type="button" id="hamburger-menu" class="hamburger-menu">
-            <span class="mgc_menu_line icon-black"></span>
-          </button>
-        </div>
-        <div class="navbar__search">
-          <label for="search-box"
-            ><span class="mgc_search_line icon-black"></span
-          ></label>
-          <input
-            type="search"
-            name="search"
-            id="search-box"
-            placeholder="Search here..."
-          />
-        </div>
-        <div class="shopping-cart"></div>
       </nav>
       <!-- hero section -->
-      <section class="hero" id="home">
+      <section class="hero container" id="home">
         <h1>WHERE EVERY SIP TELLS A STORY</h1>
         <img src="img/hero-bg.jpg" alt="background hero" />
         <div class="hero__content">
@@ -83,7 +85,7 @@
     </header>
 
     <!-- services section -->
-    <section id="service" class="service">
+    <section id="service" class="service container">
       <h2>WHAT MAKES US UNIQUE</h2>
       <div class="service__services">
         <div class="service__service">
@@ -141,7 +143,7 @@
     </section>
 
     <!-- products section -->
-    <section id="products" class="products">
+    <section id="products" class="products container">
       <div class="products__content">
         <p>
           Discover excellence in every cup with our featured product selection.
@@ -310,7 +312,7 @@
     </section>
 
     <!-- contact section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact container">
       <h2>CONTACT</h2>
       <div class="contact__info">
         <div class="contact__info-left">
@@ -354,52 +356,54 @@
     </section>
 
     <!-- footer section -->
-    <footer class="footer">
-      <img src="img/logo/large-logo.svg" alt="logo" class="footer__logo" />
-      <div class="footer__info">
-        <div class="footer__info-left">
-          <div>
-            <p>Browse</p>
-            <a href="#home">Home</a>
-            <a href="#service">Service</a>
-            <a href="#home">Products</a>
-            <a href="#About">About us</a>
-            <a href="#contact">Contact us</a>
-          </div>
-          <div>
-            <p>Categories</p>
-            <a href="#">Espresso</a>
-            <a href="#">Cappucino</a>
-            <a href="#">Coffee bean</a>
-          </div>
-          <div>
-            <p>Connect with us</p>
-            <div class="links__social">
-              <span class="mgc_ins_line icon"></span>
-              <span class="mgc_twitter_line icon"></span>
-              <span class="mgc_facebook_line icon"></span>
-              <span class="mgc_youtube_line icon"></span>
+    <footer>
+      <div class="footer container">
+        <img src="img/logo/large-logo.svg" alt="logo" class="footer__logo" />
+        <div class="footer__info">
+          <div class="footer__info-left">
+            <div>
+              <p>Browse</p>
+              <a href="#home">Home</a>
+              <a href="#service">Service</a>
+              <a href="#home">Products</a>
+              <a href="#About">About us</a>
+              <a href="#contact">Contact us</a>
+            </div>
+            <div>
+              <p>Categories</p>
+              <a href="#">Espresso</a>
+              <a href="#">Cappucino</a>
+              <a href="#">Coffee bean</a>
+            </div>
+            <div>
+              <p>Connect with us</p>
+              <div class="links__social">
+                <a href="#"><span class="mgc_ins_line icon"></span></a>
+                <a href="#"><span class="mgc_twitter_line icon"></span></a>
+                <a href="#"><span class="mgc_facebook_line icon"></span></a>
+                <a href="#"><span class="mgc_youtube_line icon"></span></a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="footer__info-right">
-          <p>Join our newsletter, get our promotions</p>
-          <form action="">
-            <input type="email" name="email" id="email" />
-            <button type="submit">Subscribe</button>
-          </form>
-        </div>
-      </div>
-      <div class="footer__extra">
-        <hr />
-        <div>
-          <div class="footer__extra-left">
-            <p>2023, <a href="#">NGOPI</a></p>
+          <div class="footer__info-right">
+            <p>Join our newsletter, get our promotions</p>
+            <form action="">
+              <input type="email" name="email" id="email" />
+              <button type="submit">Subscribe</button>
+            </form>
           </div>
-          <div class="footer__extra-right">
-            <a href="#">Terms</a>
-            <a href="#">Privacy</a>
-            <a href="#">Security</a>
+        </div>
+        <div class="footer__extra">
+          <hr />
+          <div>
+            <div class="footer__extra-left">
+              <p>2023, <a href="#">NGOPI</a></p>
+            </div>
+            <div class="footer__extra-right">
+              <a href="#">Terms</a>
+              <a href="#">Privacy</a>
+              <a href="#">Security</a>
+            </div>
           </div>
         </div>
       </div>
