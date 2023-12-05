@@ -19,6 +19,7 @@
   --h1-text: normal 400 8.125rem/6.5625rem 'Bebas Neue', sans-serif;
   --h2-text: normal 400 6.875rem/6rem 'Bebas Neue', sans-serif;
   --h3-text: normal 400 3.875rem/100% 'Bebas Neue', sans-serif;
+  --h4-text: normal 400 2.25rem / normal 'Bebas Neue', sans-serif;
   --body-text: normal 400 1.125rem/1.75rem 'General Sans Variable', sans-serif;
   --body2-text: normal 500 1.5rem / normal 'General Sans Variable', sans-serif;
   --body3-text: normal 500 2rem / normal 'General Sans Variable', sans-serif;
@@ -40,27 +41,11 @@ body {
 }
 
 .highlight {
-  color: var(--highlight-color);
-}
-
-.row {
-  display: flex;
+  color: var(--secondary-100);
 }
 
 .active {
   right: 0 !important;
-}
-
-p {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.6;
-}
-
-h2 {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 2rem;
 }
 
 button {
@@ -259,15 +244,17 @@ button {
 .hero {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   padding: 0rem 3.75rem;
   margin-top: 10.75rem;
+  align-items: center;
 }
 
 .hero h1 {
   font: var(--h1-text);
   color: var(--primary-500);
   margin-bottom: 2.5rem;
+  text-transform: uppercase;
 }
 
 .hero img {
@@ -282,6 +269,7 @@ button {
   justify-content: space-between;
   margin-top: 1.25rem;
   align-items: center;
+  width: 100%;
 }
 
 .hero__content p {
@@ -297,29 +285,50 @@ button {
   padding: 1rem;
 }
 
-/* about section */
-.about,
-.menu,
-.contact {
-  padding: 7rem 7% 1.4rem;
+/* services section */
+.service {
+  display: flex;
+  padding: 0rem 3.75rem;
+  justify-content: space-between;
+  margin-top: 10rem;
 }
 
-.about__image {
-  flex: 1 1 35rem;
+.service h2 {
+  font: var(--h2-text);
+  width: 16.9375rem;
 }
 
-.about__image img {
-  width: 100%;
+.service__services {
+  display: flex;
+  width: 47.625rem;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.about__content {
-  flex: 1 1 45rem;
-  padding: 0 1rem;
+.service__service {
+  display: flex;
+  gap: 1.5rem;
 }
 
-.about__content h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+.service__number h3 {
+  font: var(--h3-text);
+  color: var(--primary-100);
+}
+
+.service__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.service__content h3 {
+  font: var(--body2-text);
+  color: var(--secondary-100);
+  text-transform: uppercase;
+}
+
+.service__content p {
+  font: var(--body-text);
 }
 
 /* menu section */
@@ -541,8 +550,25 @@ button {
 
 /* laptop */
 @media (max-width: 1024px) {
+  .navbar {
+    padding: 0 1.875rem;
+  }
+
+  .hero {
+    padding: 0 1.875rem;
+  }
+
   .hero h1 {
     font: var(--h2-text);
+  }
+
+  .service {
+    padding: 0 1.875rem;
+    margin-top: 7.5rem;
+  }
+
+  .service__services {
+    width: 41.1875rem;
   }
 }
 
@@ -579,7 +605,7 @@ button {
   }
 
   .hero h1 {
-    font: var(--h3-text);
+    font: var(--h2-text);
   }
 
   .hero__content {
@@ -597,14 +623,18 @@ button {
     padding: 0.8rem;
   }
 
-  .row {
-    flex-wrap: wrap;
+  .service h2 {
+    font: var(--h3-text);
+    margin-right: 1.13rem;
+    width: 9.5625rem;
   }
 
-  .about__image img {
-    height: 18.75rem;
-    object-fit: cover;
-    object-position: center;
+  .service__services {
+    width: 29.1875rem;
+  }
+
+  .service__number h3 {
+    font: var(--h4-text);
   }
 
   .footer {
@@ -623,27 +653,47 @@ button {
 }
 
 /* mobile phone */
-@media (max-width: 480px) {
+@media (max-width: 450px) {
+  .navbar {
+    padding: 0 1.25rem;
+  }
+
   .navbar__logo {
     font-size: 1.125rem;
   }
 
-  .hero__content {
-    width: 20rem;
+  .hero {
+    padding: 1.25rem;
+    margin-top: 6rem;
   }
 
-  .hero__content h1 {
-    font-size: 1.5rem;
-  }
-
-  .hero__content p {
-    font-size: 0.875rem;
-    line-height: 1.4;
+  .hero h1 {
+    font: var(--h3-text);
   }
 
   .hero__cta {
     font-size: 1rem;
     padding: 0.6rem;
+  }
+
+  .service {
+    padding: 0 1.25rem;
+    margin-top: 3rem;
+    flex-direction: column;
+    gap: 1.12rem;
+  }
+
+  .service h2 {
+    font: var(--h4-text);
+    width: 100%;
+  }
+
+  .service__services {
+    width: 100%;
+  }
+
+  .service__content h3 {
+    font: var(--body4-text);
   }
 
   .about__image,
