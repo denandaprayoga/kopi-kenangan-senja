@@ -69,17 +69,12 @@ button {
 
 .icon::before {
   font-size: 1.5rem;
-  color: var(--primary-500);
+  color: var(--secondary-100);
 }
 
 .icon-black::before {
   font-size: 1.5rem;
   color: var(--primary-500);
-}
-
-.icon-star {
-  fill: var(--primary-100);
-  color: var(--primary-100);
 }
 
 /* navbar */
@@ -296,6 +291,7 @@ button {
 .service h2 {
   font: var(--h2-text);
   width: 16.9375rem;
+  color: var(--primary-500);
 }
 
 .service__services {
@@ -329,66 +325,120 @@ button {
 
 .service__content p {
   font: var(--body-text);
+  color: var(--primary-500);
 }
 
-/* menu section */
-.menu h2,
-.contact h2 {
-  margin: 0.5rem;
+/* products section */
+.products {
+  width: 100%;
+  padding: 0rem 3.75rem;
+  margin-top: 10rem;
 }
 
-.menu p,
-.contact p {
-  text-align: center;
-  width: 32rem;
-  margin: auto;
+.products__content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.products__content p {
+  width: 40.625rem;
+  color: var(--primary-500);
+}
+
+.products__content h2 {
+  width: 25.8125rem;
+  font: var(--h2-text);
+  color: var(--primary-500);
+  text-transform: uppercase;
+}
+
+.products__items {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-top: 2.75rem;
 }
 
 .card {
   display: flex;
+  width: 19.6875rem;
+  padding: 1.5rem;
   flex-direction: column;
+  border: 0.5px solid var(--primary-100);
+  background: var(--netral-100);
   align-items: center;
-  margin: 3rem 0 0;
-  border: 1px solid rgb(255, 255, 255);
-  padding: 1rem;
-  width: 18.75rem;
 }
 
-.card-icons {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
+.card img {
+  height: 18.25rem;
   margin-bottom: 1rem;
 }
 
-.card .shop-cart-btn,
-.card .item-detail-btn {
-  width: 3.5rem;
-  height: 3.5rem;
-  border: 1px solid rgb(255, 255, 255);
-  border-radius: 50%;
+.card__title {
+  font: var(--body3-text);
+  margin-bottom: 0.75rem;
+  color: var(--primary-500);
 }
 
-.card-img {
-  width: 15.5rem;
-  height: 15.5rem;
-  object-fit: cover;
-  object-position: center;
+.card__reviews {
+  margin-bottom: 2.5rem;
 }
 
-.card-title {
-  font-size: 1.2rem;
+.card__price {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.card p {
-  width: fit-content;
-  font-size: 1.2rem;
+.card__price p {
+  font: var(--body3-text);
+  color: var(--primary-500);
 }
 
-.menu .row {
-  flex-wrap: wrap;
+.card__price div {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.card__price .card__min-btn,
+.card__price .card__add-btn {
+  display: flex;
+  width: 2rem;
+  height: 2rem;
   justify-content: center;
-  gap: 1rem;
+  align-items: center;
+  border-radius: 3.125rem;
+  background-color: var(--primary-100);
+}
+
+.card__price .card__add-btn {
+  background-color: var(--secondary-100);
+}
+
+.card__price .card__min-btn .icon::before,
+.card__price .card__add-btn .icon::before {
+  color: var(--netral-100);
+}
+
+.card__checkout {
+  display: flex;
+  padding: 1.5rem 2.5rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3.125rem;
+  background: var(--primary-100);
+  font: var(--body2-text);
+  color: var(--netral-100);
+  text-transform: uppercase;
+  margin: 3.69rem auto 0 auto;
+}
+
+.card__checkout span {
+  margin-right: 0.625rem;
 }
 
 /* contact section*/
@@ -570,6 +620,15 @@ button {
   .service__services {
     width: 41.1875rem;
   }
+
+  .products {
+    padding: 0 1.875rem;
+    margin-top: 7.5rem;
+  }
+
+  .products__content p {
+    width: 30.75rem;
+  }
 }
 
 /* tablet */
@@ -637,6 +696,18 @@ button {
     font: var(--h4-text);
   }
 
+  .products {
+    margin-top: 6.25rem;
+  }
+
+  .products__content p {
+    display: none;
+  }
+
+  .products__content h2 {
+    font: var(--h3-text);
+  }
+
   .footer {
     margin-top: 7rem;
   }
@@ -696,37 +767,16 @@ button {
     font: var(--body4-text);
   }
 
-  .about__image,
-  .about__content {
-    flex: 1 1 100%;
-    flex-wrap: wrap;
+  .products {
+    margin-top: 5.12rem;
   }
 
-  .about__image img {
-    height: 12.5rem;
-    object-fit: cover;
-    object-position: center;
+  .products__content h2 {
+    font: var(--h4-text);
   }
 
-  .menu p {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-
-  .shopping-cart {
-    width: 90%;
-  }
-
-  .card {
-    margin: 1rem 0 0;
-  }
-
-  .contact__form {
-    flex: 1 1 100%;
-    padding: 1.5rem 0;
-  }
-
-  .contact p {
-    width: 100%;
+  .products__items {
+    margin-top: 1.5rem;
+    justify-content: center;
   }
 }
