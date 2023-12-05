@@ -20,150 +20,399 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- navbar -->
-    <nav class="navbar">
-      <a href="#" class="navbar__logo"
-        >kenangan<span class="highlight">senja</span>.</a
-      >
-      <div class="navbar__nav">
-        <a href="#">Home</a>
-        <a href="#about">Tentang kami</a>
-        <a href="#menu">Menu</a>
-        <a href="#contact">Kontak</a>
-      </div>
-      <div class="navbar__extra">
-        <button type="button" id="search-btn">
-          <span class="mgc_search_line icon"></span>
-        </button>
-        <button type="button" id="shopping-cart-btn">
-          <span class="mgc_shopping_bag_3_line icon"></span>
-          <p class="badge">0</p>
-        </button>
-        <button type="button" id="hamburger-menu">
-          <span class="mgc_menu_line icon"></span>
-        </button>
-      </div>
-      <div class="navbar__search">
-        <label for="search-box"
-          ><span class="mgc_search_line icon-black"></span
-        ></label>
-        <input
-          type="search"
-          name="search"
-          id="search-box"
-          placeholder="Search here..."
-        />
-      </div>
-      <div class="shopping-cart"></div>
-    </nav>
+    <!-- header -->
+    <header class="header">
+      <!-- navbar -->
+      <nav>
+        <div class="navbar container">
+          <div class="navbar__nav">
+            <a href="#" class="navbar__logo">
+              <img src="img/logo/logo.svg" alt="logo" />
+            </a>
+            <div class="navbar__links">
+              <a href="#">Home</a>
+              <a href="#service">Service</a>
+              <a href="#shop">Shop</a>
+              <a href="#contact">Contact</a>
+            </div>
+          </div>
+          <div class="navbar__extra">
+            <button type="button" id="search-btn" class="search-btn">
+              <span class="mgc_search_line icon-black"></span>
+            </button>
+            <button
+              type="button"
+              id="shopping-cart-btn"
+              class="shopping-cart-btn"
+            >
+              Cart&lpar;<span class="badge">0</span>&rpar;
+            </button>
+            <button type="button" id="login-btn" class="login-btn">
+              Login
+            </button>
+            <button type="button" id="hamburger-menu" class="hamburger-menu">
+              <span class="mgc_menu_line icon-black"></span>
+            </button>
+          </div>
+          <div class="navbar__search">
+            <label for="search-box"
+              ><span class="mgc_search_line icon-black"></span
+            ></label>
+            <input
+              type="search"
+              name="search"
+              id="search-box"
+              placeholder="Search here..."
+            />
+          </div>
+          <div class="shopping-cart"></div>
+        </div>
+      </nav>
+      <!-- hero section -->
+      <section class="hero container" id="home">
+        <h1>WHERE EVERY SIP TELLS A STORY</h1>
+        <img src="img/hero-bg.jpg" alt="background hero" />
+        <div class="hero__content">
+          <p>
+            Savor the exceptional richness of
+            <span class="highlight">ngopi</span> coffee. Our finely crafted
+            blend offers a perfect harmony of bold and smooth flavors. Elevate
+            your coffee ritual with every sip.
+          </p>
+          <a href="#" class="hero__cta">Shop Now</a>
+        </div>
+      </section>
+    </header>
 
-    <!-- hero section -->
-    <section class="hero" id="home">
-      <main class="hero__content">
-        <h1>Mari nikmati secangkir <span class="highlight">kopi</span></h1>
+    <!-- services section -->
+    <section id="service" class="service container">
+      <h2>WHAT MAKES US UNIQUE</h2>
+      <div class="service__services">
+        <div class="service__service">
+          <div class="service__number">
+            <h3>01</h3>
+          </div>
+          <div class="service__content">
+            <h3>FREE SHIPPING</h3>
+            <p>
+              Enjoy the convenience of free shipping on orders above a certain
+              amount. A little extra perk for our valued customers.
+            </p>
+          </div>
+        </div>
+        <div class="service__service">
+          <div class="service__number">
+            <h3>02</h3>
+          </div>
+          <div class="service__content">
+            <h3>SUBSCRIPTION PROGRAM</h3>
+            <p>
+              Never run out of your favorite coffee again! Join our subscription
+              program for regular deliveries, plus exclusive discounts for our
+              loyal subscribers.
+            </p>
+          </div>
+        </div>
+        <div class="service__service">
+          <div class="service__number">
+            <h3>03</h3>
+          </div>
+          <div class="service__content">
+            <h3>BUNDLE DEALS</h3>
+            <p>
+              Discover more and save! Our bundled deals bring you a variety of
+              coffees at a special price, ensuring there's something for every
+              coffee enthusiast.
+            </p>
+          </div>
+        </div>
+        <div class="service__service">
+          <div class="service__number">
+            <h3>04</h3>
+          </div>
+          <div class="service__content">
+            <h3>CUSTOMER REWARDS PROGRAM</h3>
+            <p>
+              Earn as you sip! Our rewards program lets you collect points with
+              every purchase, unlocking exciting discounts and freebies. Because
+              every cup should come with a reward.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- products section -->
+    <section id="products" class="products container">
+      <div class="products__content">
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum,
-          quo.
+          Discover excellence in every cup with our featured product selection.
+          Handpicked for their exceptional quality and distinctive flavors,
+          these premium offerings showcase the best of ngopi. Elevate your
+          coffee experience and indulge in the richness of our carefully curated
+          featured products
         </p>
-        <a href="#" class="hero__cta">Beli sekarang</a>
-      </main>
-    </section>
-
-    <!-- about section -->
-    <section id="about" class="about">
-      <h2><span class="highlight">Tentang</span> kami</h2>
-      <div class="row">
-        <div class="about__image">
-          <img src="img/about.jpg" alt="tentang kami" />
+        <h2>FEATURED PRODUCTS</h2>
+      </div>
+      <div class="products__items">
+        <div class="card">
+          <img
+            src="img/java-robusta.jpg"
+            alt="java-robusta"
+            class="card__img"
+          />
+          <h2 class="card__title">Java Robusta</h2>
+          <div class="card__reviews">
+            <span class="mgc_star_line icon"></span>
+            <span class="mgc_star_line icon"></span>
+            <span class="mgc_star_line icon"></span>
+            <span class="mgc_star_line icon"></span>
+            <span class="mgc_star_line icon"></span>
+          </div>
+          <div class="card__price">
+            <p>$4</p>
+            <div>
+              <button class="card__min-btn">
+                <span class="mgc_minimize_line icon"></span>
+              </button>
+              <span class="card__qty">0</span>
+              <button class="card__add-btn">
+                <span class="mgc_add_line icon"></span>
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="about__content">
-          <h3>Kenapa memilih kopi kami?</h3>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi, vel
-            aliquid. Eaque nostrum delectus corporis obcaecati illum magnam
-            atque modi.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-            reprehenderit voluptas dolore mollitia? Consequuntur qui quaerat
-            dolores rem quidem, dolorem explicabo atque possimus quae maiores
-            quos. Dolorem fuga explicabo porro?
-          </p>
+        <div class="card">
+          <img
+            src="img/java-robusta.jpg"
+            alt="java-robusta"
+            class="card__img"
+          />
+          <h2 class="card__title">Java Robusta</h2>
+          <div class="card__reviews">
+            <span class="mgc_star_line icon"></span>
+            <span class="mgc_star_line icon"></span>
+            <span class="mgc_star_line icon"></span>
+            <span class="mgc_star_line icon"></span>
+            <span class="mgc_star_line icon"></span>
+          </div>
+          <div class="card__price">
+            <p>$4</p>
+            <div>
+              <button class="card__min-btn">
+                <span class="mgc_minimize_line icon"></span>
+              </button>
+              <span class="card__qty">0</span>
+              <button class="card__add-btn">
+                <span class="mgc_add_line icon"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="img/java-robusta.jpg"
+            alt="java-robusta"
+            class="card__img"
+          />
+          <h2 class="card__title">Java Robusta</h2>
+          <div class="card__reviews">
+            <span class="mgc_star_line icon"></span>
+            <span class="mgc_star_line icon"></span>
+            <span class="mgc_star_line icon"></span>
+            <span class="mgc_star_line icon"></span>
+            <span class="mgc_star_line icon"></span>
+          </div>
+          <div class="card__price">
+            <p>$4</p>
+            <div>
+              <button class="card__min-btn">
+                <span class="mgc_minimize_line icon"></span>
+              </button>
+              <span class="card__qty">0</span>
+              <button class="card__add-btn">
+                <span class="mgc_add_line icon"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="img/java-robusta.jpg"
+            alt="java-robusta"
+            class="card__img"
+          />
+          <h2 class="card__title">Java Robusta</h2>
+          <div class="card__reviews">
+            <span class="mgc_star_line icon"></span>
+            <span class="mgc_star_line icon"></span>
+            <span class="mgc_star_line icon"></span>
+            <span class="mgc_star_line icon"></span>
+            <span class="mgc_star_line icon"></span>
+          </div>
+          <div class="card__price">
+            <p>$4</p>
+            <div>
+              <button class="card__min-btn">
+                <span class="mgc_minimize_line icon"></span>
+              </button>
+              <span class="card__qty">0</span>
+              <button class="card__add-btn">
+                <span class="mgc_add_line icon"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="img/java-robusta.jpg"
+            alt="java-robusta"
+            class="card__img"
+          />
+          <h2 class="card__title">Java Robusta</h2>
+          <div class="card__reviews">
+            <span class="mgc_star_line icon"></span>
+            <span class="mgc_star_line icon"></span>
+            <span class="mgc_star_line icon"></span>
+            <span class="mgc_star_line icon"></span>
+            <span class="mgc_star_line icon"></span>
+          </div>
+          <div class="card__price">
+            <p>$4</p>
+            <div>
+              <button class="card__min-btn">
+                <span class="mgc_minimize_line icon"></span>
+              </button>
+              <span class="card__qty">0</span>
+              <button class="card__add-btn">
+                <span class="mgc_add_line icon"></span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
+      <button class="card__checkout">$<span>0</span> Checkout</button>
     </section>
 
-    <!-- menu section -->
-    <section id="menu" class="menu">
-      <h2><span class="highlight">Menu</span> kami</h2>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio
-        perspiciatis quo quod eos pariatur optio, eligendi cumque saepe earum
-        sapiente.
+    <!-- reviews section -->
+    <section class="reviews">
+      <h2 class="reviews__username">Nolan Vetrovs</h2>
+      <p class="reviews__content">
+        “ As a true coffee lover, I've tried countless beans, but kopi takes the
+        cake! The rich aroma and bold flavor profile make every sip a delightful
+        experience. It's become my morning ritual, and I can't imagine starting
+        my day without it “
       </p>
-      <div class="row"></div>
+      <div class="reviews__sliders">
+        <span class="reviews__slider active"></span>
+        <span class="reviews__slider"></span>
+        <span class="reviews__slider"></span>
+        <span class="reviews__slider"></span>
+      </div>
     </section>
 
     <!-- contact section -->
-    <section id="contact" class="contact">
-      <h2><span class="highlight">Kontak</span> kami</h2>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate,
-        dignissimos!
-      </p>
-      <div class="row">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126881.56976820115!2d106.7353949601266!3d-6.387671392132824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e95620a297d3%3A0x1cfd4042316fb217!2sDepok%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1699801507201!5m2!1sen!2sid"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          class="contact__map"
-        ></iframe>
-        <form action="" class="contact__form">
-          <div class="input-group">
-            <i data-feather="user"></i>
-            <input type="text" placeholder="username" />
+    <section id="contact" class="contact container">
+      <h2>CONTACT</h2>
+      <div class="contact__info">
+        <div class="contact__info-left">
+          <div>
+            <p>Address</p>
+            <p>Jakarta, Indonesia</p>
           </div>
-          <div class="input-group">
-            <i data-feather="mail"></i>
-            <input type="text" placeholder="email" />
+          <div>
+            <p>Call us</p>
+            <p>(+62) 3249 8423</p>
           </div>
-          <div class="input-group">
-            <i data-feather="phone"></i>
-            <input type="text" placeholder="no HP" />
+          <div>
+            <p>Email us</p>
+            <p>ngopi@gmail.com</p>
           </div>
-          <button class="btn" type="submit">Kirim pesan</button>
-        </form>
+          <div>
+            <p>Social Media</p>
+            <span class="mgc_ins_line icon-black"></span>
+            <span class="mgc_twitter_line icon-black"></span>
+            <span class="mgc_facebook_line icon-black"></span>
+            <span class="mgc_youtube_line icon-black"></span>
+          </div>
+        </div>
+        <div class="contact__info-right">
+          <p>
+            Feel free to contact us any time. We will get back to you as soon as
+            we can!
+          </p>
+          <form action="">
+            <input type="text" name="name" id="name" placeholder="Name" />
+            <input type="email" name="email" id="email" placeholder="Email" />
+            <textarea
+              name="message"
+              id="message"
+              placeholder="Message"
+            ></textarea>
+            <button type="submit" class="btn__submit">Submit</button>
+          </form>
+        </div>
       </div>
     </section>
 
     <!-- footer section -->
-    <footer class="footer">
-      <div class="footer__socials">
-        <a href="#"><i data-feather="instagram"></i></a>
-        <a href="#"><i data-feather="twitter"></i></a>
-        <a href="#"><i data-feather="facebook"></i></a>
+    <footer>
+      <div class="footer container">
+        <img src="img/logo/large-logo.svg" alt="logo" class="footer__logo" />
+        <div class="footer__info">
+          <div class="footer__info-left">
+            <div>
+              <p>Browse</p>
+              <a href="#home">Home</a>
+              <a href="#service">Service</a>
+              <a href="#home">Products</a>
+              <a href="#About">About us</a>
+              <a href="#contact">Contact us</a>
+            </div>
+            <div>
+              <p>Categories</p>
+              <a href="#">Espresso</a>
+              <a href="#">Cappucino</a>
+              <a href="#">Coffee bean</a>
+            </div>
+            <div>
+              <p>Connect with us</p>
+              <div class="links__social">
+                <a href="#"><span class="mgc_ins_line icon"></span></a>
+                <a href="#"><span class="mgc_twitter_line icon"></span></a>
+                <a href="#"><span class="mgc_facebook_line icon"></span></a>
+                <a href="#"><span class="mgc_youtube_line icon"></span></a>
+              </div>
+            </div>
+          </div>
+          <div class="footer__info-right">
+            <p>Join our newsletter, get our promotions</p>
+            <form action="">
+              <input type="email" name="email" id="email" />
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer__extra">
+          <hr />
+          <div>
+            <div class="footer__extra-left">
+              <p>2023, <a href="#">NGOPI</a></p>
+            </div>
+            <div class="footer__extra-right">
+              <a href="#">Terms</a>
+              <a href="#">Privacy</a>
+              <a href="#">Security</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="footer__links">
-        <a href="#home">Home</a>
-        <a href="#about">Tentang kami</a>
-        <a href="#menu">Menu</a>
-        <a href="#contact">Kontak</a>
-      </div>
-      <p class="footer__credit">
-        Created by <a href="">Denanda prayoga</a>. | &copy; 2023
-      </p>
     </footer>
 
     <!-- modal box item -->
     <div class="modal" id="item-detail-modal"></div>
 
-    <!-- feather icons -->
-    <script>
-      feather.replace();
-    </script>
-
     <!-- my javascript -->
-    <script src="js/script.js"></script>
+    <!-- <script src="js/script.js"></script> -->
   </body>
 </html>
