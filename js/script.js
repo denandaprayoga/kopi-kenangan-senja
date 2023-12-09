@@ -48,60 +48,83 @@ const products = [
   },
 ];
 
+const rupiah = (number) => {
+  return new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    maximumFractionDigits: 0,
+  }).format(number);
+};
+
 //membuat elemen card
 function createCardElement(item) {
   const card = document.createElement('div');
   card.classList.add('card');
 
-  const cardIcons = document.createElement('div');
-  cardIcons.classList.add('card-icons');
-
-  const cartButton = document.createElement('button');
-  cartButton.type = 'button';
-  cartButton.classList.add('shop-cart-btn');
-  cartButton.setAttribute('data-id', item.id);
-  cartButton.innerHTML = `
-  <span class="mgc_shopping_bag_3_line icon-black" data-id=${item.id}><span>
-  `;
-
-  const detailButton = document.createElement('button');
-  detailButton.type = 'button';
-  detailButton.classList.add('item-detail-btn');
-  detailButton.setAttribute('data-id', item.id);
-  detailButton.innerHTML = `
-  <span class="mgc_eye_2_line icon-black" data-id=${item.id}><span>
-  `;
-
-  cardIcons.appendChild(cartButton);
-  cardIcons.appendChild(detailButton);
-
   const cardImg = document.createElement('img');
   cardImg.src = `img/${item.image}`;
   cardImg.alt = 'espresso';
-  cardImg.classList.add('card-img');
+  cardImg.classList.add('card__img');
 
   const cardTitle = document.createElement('h2');
-  cardTitle.classList.add('card-title');
+  cardTitle.classList.add('card__title');
   cardTitle.textContent = item.name;
 
   const cardReview = document.createElement('div');
-  cardReview.classList.add('card-review');
+  cardReview.classList.add('card__reviews');
 
   for (let i = 0; i < 5; i++) {
-    cardReview.innerHTML += `
-    <span class="mgc_star_line icon" data-id=${item.id}><span>
-    `;
+    const iconReview = document.createElement('span');
+    iconReview.classList.add('mgc_star_line');
+    iconReview.classList.add('icon-black');
+    cardReview.append(iconReview);
   }
 
-  const cardPrice = document.createElement('p');
-  cardPrice.classList.add('card-price');
-  cardPrice.textContent = item.price;
+  const cardPrice = document.createElement('div');
+  cardPrice.classList.add('card__price');
 
-  card.appendChild(cardIcons);
-  card.appendChild(cardImg);
-  card.appendChild(cardTitle);
-  card.appendChild(cardReview);
-  card.appendChild(cardPrice);
+  const div = document.createElement('div');
+  const price = document.createElement('p');
+  price.textContent = rupiah(item.price);
+
+  const buttonMin = document.createElement('button');
+  buttonMin.classList.add('card__min-btn');
+  buttonMin.classList.add('disabled');
+  buttonMin.setAttribute('disabled', '');
+  buttonMin.setAttribute('data-id', item.id);
+
+  const spanMin = document.createElement('span');
+  spanMin.classList.add('mgc_minimize_line');
+  spanMin.classList.add('icon');
+  spanMin.setAttribute('data-id', item.id);
+
+  buttonMin.append(spanMin);
+
+  const cardQty = document.createElement('p');
+  cardQty.textContent = 0;
+
+  const buttonAdd = document.createElement('button');
+  buttonAdd.classList.add('card__add-btn');
+  buttonAdd.setAttribute('data-id', item.id);
+
+  const spanAdd = document.createElement('span');
+  spanAdd.classList.add('mgc_add_line');
+  spanAdd.classList.add('icon');
+  spanAdd.setAttribute('data-id', item.id);
+
+  buttonAdd.append(spanAdd);
+
+  div.append(buttonMin);
+  div.append(cardQty);
+  div.append(buttonAdd);
+
+  cardPrice.append(price);
+  cardPrice.append(div);
+
+  card.append(cardImg);
+  card.append(cardTitle);
+  card.append(cardReview);
+  card.append(cardPrice);
 
   return card;
 }
@@ -113,27 +136,70 @@ products.forEach((item) => {
 });
 
 //menambahkan elemen card ke menu
-const menu = document.querySelector('.menu .row');
-menu.appendChild(fragment);
+const productsItem = document.querySelector('.products__items');
+productsItem.appendChild(fragment);
 
-//ketika button shopping-cart di klik
-document.querySelectorAll('.shop-cart-btn').forEach((btn) => {
-  btn.addEventListener('click', (e) => {
-    const id = e.target.dataset.id;
-    addToCart(parseInt(id));
-  });
-});
-//array untuk menyimpan item cart
+//array untuk menyimpan product di cart
 const cart = [];
 
-//menambahkan item ke cart
+//ketika button shopping-cart di klik
+document.querySelectorAll('.card__add-btn').forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    const id = parseInt(e.target.dataset.id);
+    addToCart(id);
+
+    //update qty
+    const parentElem = btn.parentElement;
+    const qty = parentElem.querySelector('p');
+    const product = cart.find((product) => product.id === id);
+    qty.textContent = product.quantity;
+
+    const buttonMin = parentElem.querySelector('.card__min-btn');
+    buttonMin.removeAttribute('disabled');
+    buttonMin.classList.remove('disabled');
+    buttonMin.style.backgroundColor = 'var(--secondary-100)';
+
+    //update tombol checkout di landing page
+    updateCheckout();
+  });
+});
+
+document.querySelectorAll('.card__min-btn').forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    const id = parseInt(e.target.dataset.id);
+
+    //update qty
+    const existingProduct = cart.find((item) => item.id == id);
+    const index = cart.findIndex((item) => item.id === id);
+    const parentElem = btn.parentElement;
+    const qty = parentElem.querySelector('p');
+    if (existingProduct.quantity > 1) {
+      existingProduct.quantity--;
+      qty.textContent = existingProduct.quantity;
+    } else if (existingProduct.quantity === 1) {
+      cart.splice(index, 1);
+      qty.textContent = 0;
+      btn.setAttribute('disabled', '');
+      btn.classList.add('disabled');
+      btn.style.backgroundColor = 'var(--primary-100)';
+    }
+
+    //update tombol checkout di landing page
+    updateCheckout();
+  });
+});
+
+//menambahkan product ke cart[]
 function addToCart(productID) {
   const selectedProduct = products.find((product) => product.id === productID);
 
-  //cek apakah item sudah ada di keranjang
-  const existingItem = cart.find((item) => item.id == productID);
-  if (existingItem) {
-    existingItem.quantity++;
+  //memeriksa apakah produk sudah ada di dalam cart atau belum
+  //jika belum maka tambahkan ke array cart[]
+  //jika sudah tambahkan quantity nya
+  const existingProduct = cart.find((product) => product.id === productID);
+
+  if (existingProduct) {
+    existingProduct.quantity++;
   } else {
     cart.push({
       id: productID,
@@ -143,184 +209,175 @@ function addToCart(productID) {
       quantity: 1,
     });
   }
-  updateCart();
 }
 
-//display item cart
-function updateCart() {
-  shopBox.innerHTML = '';
-  cart.forEach((item) => {
-    createCartElement(item);
+//update tombol checkout di landing page
+function updateCheckout() {
+  const btnCheckout = document.querySelector('.card__checkout');
+  const checkout = document.querySelector('.card__checkout span');
+  let total = 0;
+  cart.forEach((product) => {
+    total += product.price * product.quantity;
   });
 
-  //tambahkan event listener ke remove button
-  document.querySelectorAll('.remove-btn').forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      removeItem(e);
-    });
-  });
+  checkout.textContent = rupiah(total);
 
-  updateBadge();
-}
-
-//remove item
-function removeItem(e) {
-  const existingItem = cart.find(
-    (item) => item.id == parseInt(e.target.dataset.id)
-  );
-
-  const index = cart.findIndex(
-    (item) => item.id === parseInt(e.target.dataset.id)
-  );
-
-  if (existingItem.quantity > 1) {
-    existingItem.quantity--;
-  } else if (existingItem.quantity === 1) {
-    cart.splice(index, 1);
-  }
-  updateCart();
-}
-
-//update badge
-const badge = document.querySelector('.badge');
-function updateBadge() {
-  if (cart.length > 0) {
-    badge.style.transform = 'scale(1)';
-    badge.textContent = cart.length;
+  if (total > 1) {
+    btnCheckout.removeAttribute('disabled');
+    btnCheckout.classList.remove('disabled');
   } else {
-    badge.style.transform = 'scale(0)';
+    btnCheckout.setAttribute('disabled', '');
+    btnCheckout.classList.add('disabled');
   }
 }
 
-//create cart element
-function createCartElement(item) {
-  //membuat elemen
-  const div = document.createElement('div');
-  div.classList.add('cart-item');
+// //menambahkan item ke cart
+// function addToCart(productID) {
+//   const selectedProduct = products.find((product) => product.id === productID);
 
-  const img = document.createElement('img');
+//   //cek apakah item sudah ada di keranjang
+//   const existingItem = cart.find((item) => item.id == productID);
+//   if (existingItem) {
+//     existingItem.quantity++;
+//   } else {
+//     cart.push({
+//       id: productID,
+//       name: selectedProduct.name,
+//       image: selectedProduct.image,
+//       price: selectedProduct.price,
+//       quantity: 1,
+//     });
+//   }
+//   updateCart();
+// }
 
-  const divItem = document.createElement('div');
-  divItem.classList.add('item-detail');
+// //display item cart
+// function updateCart() {
+//   shopBox.innerHTML = '';
+//   cart.forEach((item) => {
+//     createCartElement(item);
+//   });
 
-  const h3 = document.createElement('h3');
-  const p = document.createElement('p');
-  p.classList.add('item-price');
-  const span = document.createElement('span');
+//   //tambahkan event listener ke remove button
+//   document.querySelectorAll('.remove-btn').forEach((btn) => {
+//     btn.addEventListener('click', (e) => {
+//       removeItem(e);
+//     });
+//   });
 
-  const minBtn = document.createElement('button');
-  minBtn.classList.add('remove-btn');
-  minBtn.setAttribute('data-id', item.id);
-  const plusBtn = document.createElement('button');
-  plusBtn.classList.add('add-btn');
+//   //tambahkan event listener ke add button
+//   document.querySelectorAll('.add-btn').forEach((btn) => {
+//     btn.addEventListener('click', (e) => {
+//       addItem(e);
+//     });
+//   });
 
-  const spanQTY = document.createElement('span');
+//   updateBadge();
+// }
 
-  //menambahkan konten ke elemen
-  img.src = `img/${item.image}`;
-  h3.textContent = item.name;
-  p.textContent = `${item.price} x ${item.quantity}`;
-  span.textContent = ` = ${item.price * item.quantity}`;
-  minBtn.textContent = `-`;
-  plusBtn.textContent = `+`;
-  spanQTY.textContent = item.quantity;
+// //remove item
+// function removeItem(e) {
+//   const existingItem = cart.find(
+//     (item) => item.id == parseInt(e.target.dataset.id)
+//   );
 
-  //append element
-  div.append(img);
-  div.append(divItem);
-  divItem.append(h3);
-  divItem.append(p);
-  divItem.append(minBtn);
-  divItem.append(spanQTY);
-  divItem.append(plusBtn);
-  p.append(span);
+//   const index = cart.findIndex(
+//     (item) => item.id === parseInt(e.target.dataset.id)
+//   );
 
-  shopBox.append(div);
-}
+//   if (existingItem.quantity > 1) {
+//     existingItem.quantity--;
+//   } else if (existingItem.quantity === 1) {
+//     cart.splice(index, 1);
+//   }
 
-//toggle class active shopping cart
-const cartBtn = document.querySelector('#shopping-cart-btn');
-const shopBox = document.querySelector('.shopping-cart');
-cartBtn.addEventListener('click', () => {
-  shopBox.classList.toggle('active-cart');
-});
+//   updateCart();
+// }
 
-//klik diluar elemen
-document.addEventListener('click', function (e) {
-  if (!hamburgerMenu.contains(e.target) && !navbarNav.contains(e.target)) {
-    navbarNav.classList.remove('active');
-  }
+// //add item
+// function addItem(e) {
+//   const existingItem = cart.find(
+//     (item) => item.id == parseInt(e.target.dataset.id)
+//   );
 
-  if (!searchBtn.contains(e.target) && !searchBox.contains(e.target)) {
-    searchForm.classList.remove('active-search');
-  }
+//   if (existingItem.quantity >= 1) {
+//     existingItem.quantity++;
+//   }
 
-  // if (!cartBtn.contains(e.target) && !shopBox.contains(e.target)) {
-  //   shopBox.classList.remove('active-cart');
-  // }
+//   updateCart();
+// }
 
-  if (e.target === modalBox) {
-    modalBox.style.display = 'none';
-  }
-});
+// //update badge
+// const badge = document.querySelector('.badge');
+// function updateBadge() {
+//   if (cart.length > 0) {
+//     badge.textContent = cart.length + ' items';
+//   } else {
+//     badge.textContent = cart.length + ' item';
+//   }
+// }
 
-// modal
-const modalBox = document.querySelector('.modal');
-const detailBtn = document.querySelectorAll('.item-detail-btn');
-detailBtn.forEach((btn) => {
-  btn.addEventListener('click', (e) => {
-    modalBox.style.display = 'flex';
-    modal(parseInt(e.target.dataset.id));
-  });
-});
+// //create cart element
+// function createCartElement(item) {
+//   //membuat elemen
+//   const div = document.createElement('div');
+//   div.classList.add('cart-item');
 
-function modal(id) {
-  const data = products.find((item) => item.id === id);
-  modalBox.innerHTML = `
-    <div class="modal-container">
-      <button type="button" class="close-btn">
-        <svg class="feather">
-          <use href="img/feather-sprite.svg#x" />
-        </svg>
-      </button>
-      <div class="modal-content">
-        <img src="img/${data.image}" alt="${data.name}" />
-        <div class="product-content">
-          <h3>${data.name}</h3>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est esse,
-            soluta fugit saepe iure, nesciunt impedit possimus nemo aut quidem
-            ea, illum quam. Atque, saepe?
-          </p>
-          <div class="card-review">
-            <svg class="feather icon-star">
-              <use href="img/feather-sprite.svg#star" />
-            </svg>
-            <svg class="feather icon-star">
-              <use href="img/feather-sprite.svg#star" />
-            </svg>
-            <svg class="feather icon-star">
-              <use href="img/feather-sprite.svg#star" />
-            </svg>
-            <svg class="feather icon-star">
-              <use href="img/feather-sprite.svg#star" />
-            </svg>
-            <svg class="feather icon-star">
-              <use href="img/feather-sprite.svg#star" />
-            </svg>
-          </div>
-          <p class="card-price">${data.price}</p>
-          <button type="button" class="btn-cart">
-            <i data-feather="shopping-cart"></i><span>Add to cart</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  `;
+//   const img = document.createElement('img');
 
-  //close modal
-  const closeBtn = document.querySelector('.close-btn');
-  closeBtn.addEventListener('click', () => {
-    modalBox.style.display = 'none';
-  });
-}
+//   const divItem = document.createElement('div');
+//   divItem.classList.add('item-detail');
+
+//   const h3 = document.createElement('h3');
+//   const p = document.createElement('p');
+//   p.classList.add('item-price');
+//   const span = document.createElement('span');
+
+//   const minBtn = document.createElement('button');
+//   minBtn.classList.add('remove-btn');
+//   minBtn.setAttribute('data-id', item.id);
+//   const plusBtn = document.createElement('button');
+//   plusBtn.classList.add('add-btn');
+//   plusBtn.setAttribute('data-id', item.id);
+
+//   const spanQTY = document.createElement('span');
+
+//   //menambahkan konten ke elemen
+//   img.src = `img/${item.image}`;
+//   h3.textContent = item.name;
+//   p.textContent = `${item.price} x ${item.quantity}`;
+//   span.textContent = ` = ${item.price * item.quantity}`;
+//   minBtn.textContent = `-`;
+//   plusBtn.textContent = `+`;
+//   spanQTY.textContent = item.quantity;
+
+//   //append element
+//   div.append(img);
+//   div.append(divItem);
+//   divItem.append(h3);
+//   divItem.append(p);
+//   divItem.append(minBtn);
+//   divItem.append(spanQTY);
+//   divItem.append(plusBtn);
+//   p.append(span);
+
+//   shopBox.append(div);
+// }
+
+// //toggle class active shopping cart
+// const cartBtn = document.querySelector('#shopping-cart-btn');
+// const shopBox = document.querySelector('.shopping-cart');
+// cartBtn.addEventListener('click', () => {
+//   shopBox.classList.toggle('active-cart');
+// });
+
+// //klik diluar elemen
+// document.addEventListener('click', function (e) {
+//   // if (!hamburgerMenu.contains(e.target) && !navbarNav.contains(e.target)) {
+//   //   navbarNav.classList.remove('active');
+//   // }
+
+//   if (!searchBtn.contains(e.target) && !searchBox.contains(e.target)) {
+//     searchForm.classList.remove('active-search');
+//   }
+// });

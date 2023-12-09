@@ -384,6 +384,7 @@ nav {
   border: 0.5px solid var(--primary-100);
   background: var(--netral-100);
   align-items: center;
+  justify-content: space-between;
 }
 
 .card img {
@@ -392,7 +393,7 @@ nav {
 }
 
 .card__title {
-  font: var(--body3-text);
+  font: var(--body4-text);
   margin-bottom: 0.75rem;
   color: var(--primary-500);
 }
@@ -409,13 +410,14 @@ nav {
 }
 
 .card__price p {
-  font: var(--body3-text);
+  font: var(--body4-text);
   color: var(--primary-500);
 }
 
 .card__price div {
   display: flex;
   gap: 1.25rem;
+  align-items: center;
 }
 
 .card__price .card__min-btn,
@@ -444,11 +446,16 @@ nav {
   justify-content: center;
   align-items: center;
   border-radius: 3.125rem;
-  background: var(--primary-100);
+  background: var(--secondary-100);
   font: var(--body2-text);
   color: var(--netral-100);
   text-transform: uppercase;
   margin: 3.69rem auto 0 auto;
+}
+
+.disabled {
+  cursor: not-allowed;
+  background-color: var(--primary-100);
 }
 
 .card__checkout span {
@@ -696,88 +703,6 @@ footer {
   color: var(--netral-100);
 }
 
-/* modal box */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(46, 46, 45, 0.5);
-  z-index: 99999;
-  display: none;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-container {
-  position: relative;
-  width: 80%;
-  background-color: rgb(255, 255, 255);
-  padding: 1.5rem;
-  color: var(--bg-color);
-  animation: animateModal 0.5s;
-}
-
-/* animasi */
-@keyframes animateModal {
-  from {
-    top: -300px;
-    opacity: 0;
-  }
-  to {
-    top: 0;
-    opacity: 1;
-  }
-}
-
-.close-btn {
-  position: absolute;
-  right: -1.5rem;
-  top: -1.5rem;
-  background-color: var(--primary-color);
-  color: rgb(255, 255, 255);
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-}
-
-.modal-content {
-  display: flex;
-  gap: 1rem;
-}
-
-.modal-content img {
-  height: 20rem;
-}
-
-.product-content h3 {
-  font-size: 2.625rem;
-}
-
-.product-content p {
-  font-size: 1.125rem;
-  margin-bottom: 1rem;
-}
-
-.product-content .card-price {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--primary-color);
-}
-
-.product-content .btn-cart {
-  padding: 1rem 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background-color: var(--primary-color);
-  color: rgb(255, 255, 255);
-  font-size: 1.1rem;
-}
 /* media queries */
 
 /* laptop */
